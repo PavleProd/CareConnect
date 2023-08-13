@@ -11,4 +11,12 @@ userRouter.route('/add').post(
     (req, res) => new UserController().add(req, res)
 )
 
+userRouter.route('/checkUsername').post(
+    (req, res) => new UserController().checkUsername(req, res)
+)
+
+userRouter.route('/checkEmail').post(
+    (req, res) => new UserController().checkEmail(req, res)
+)
+
 export default userRouter;

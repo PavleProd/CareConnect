@@ -15,7 +15,7 @@ let User = new Schema({
     surname: {
         type: String
     },
-    adress: {
+    address: {
         type: String
     },
     phone: {
@@ -25,7 +25,15 @@ let User = new Schema({
         type: String
     },
     type: {
-        type: String
+        type: String,
+        enum: ['Patient', 'Doctor', 'Manager'],
+    },
+    status: {
+        type: String,
+        enum: ['Pending', 'Approved', 'Rejected'],
+        required: function () {
+            return this.type === 'Patient'
+        }
     },
     licenceNumber: {
         type: Number,

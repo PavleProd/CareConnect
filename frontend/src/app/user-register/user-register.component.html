@@ -1,1 +1,18 @@
-<p>user-register works!</p>
+Korisnicko ime: <input type="text" name="username" [(ngModel)]="user.username" required>
+<br />
+Lozinka: <input type="password" name="password" [(ngModel)]="user.password" required>
+<br />
+Potvrdi lozinku: <input type="password" name="password2" [(ngModel)]="passwordConfirm" required>
+<br />
+E-mail: <input type="email" name="email" [(ngModel)]="user.email" required>
+<br />
+Ime: <input type="text" name="name" [(ngModel)]="user.name" required>
+<br />
+Prezime: <input type="text" name="surname" [(ngModel)]="user.surname" required>
+<br />
+Adresa: <input type="text" name="address" [(ngModel)]="user.address" required>
+<br />
+Kontakt telefon: <input type="text" name="phone" [(ngModel)]="user.phone" required>
+<br />
+<button (click)="register()">Registruj se</button>
+{{errorMessage}}

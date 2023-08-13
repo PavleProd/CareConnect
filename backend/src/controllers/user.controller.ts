@@ -19,9 +19,41 @@ export class UserController {
         let user = new UserModel(req.body);
 
         user.save().then((user) => {
-            res.json({ 'user': 'Added successfully' });
+            res.json({ 'user': true });
         }).catch((err) => {
             res.status(400).send('Failed to create new record');
+        })
+    }
+
+    // check if username is unique
+    checkUsername(req: express.Request, res: express.Response) {
+        let username = req.body.username;
+
+        UserModel.findOne({ 'username': username }).then((user) => {
+            if (user) {
+                res.json({ 'response': false });
+            } else {
+                res.json({ 'response': true });
+            }
+        }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': "error" });
+        })
+    }
+
+    // check if email is unique
+    checkEmail(req: express.Request, res: express.Response) {
+        let email = req.body.email;
+
+        UserModel.findOne({ 'email': email }).then((user) => {
+            if (user) {
+                res.json({ 'response': false });
+            } else {
+                res.json({ 'response': true });
+            }
+        }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': "error" });
         })
     }
 }
