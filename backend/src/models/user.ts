@@ -28,6 +28,10 @@ let User = new Schema({
         type: String,
         enum: ['Patient', 'Doctor', 'Manager'],
     },
+    profilePicture: {
+        type: String,
+        default: "../../assets/profile_pictures/default.jpg"
+    },
     status: {
         type: String,
         enum: ['Pending', 'Approved', 'Rejected'],
