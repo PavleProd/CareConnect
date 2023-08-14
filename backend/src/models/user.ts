@@ -30,7 +30,7 @@ let User = new Schema({
     },
     profilePicture: {
         type: String,
-        default: "../../assets/profile_pictures/default.jpg"
+        default: "profile_pictures/default.jpg"
     },
     status: {
         type: String,

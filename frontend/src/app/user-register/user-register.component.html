@@ -14,5 +14,9 @@ Adresa: <input type="text" name="address" [(ngModel)]="user.address" required>
 <br />
 Kontakt telefon: <input type="text" name="phone" [(ngModel)]="user.phone" required>
 <br />
+Dodaj profilnu fotografiju:
+<input type="file" (change)="onFileSelected($event)">
+<br />
 <button (click)="register()">Registruj se</button>
+<br />
 {{errorMessage}}

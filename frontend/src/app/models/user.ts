@@ -8,5 +8,5 @@ export class User {
     email: string
     type: string
     status: string
-    profilePicture: string = "../../assets/profile_pictures/default.jpg"
+    profilePicture: string = "profile_pictures/default.jpg"
 }

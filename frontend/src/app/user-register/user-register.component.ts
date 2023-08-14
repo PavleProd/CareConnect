@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { FileService } from '../services/file.service';
 
 @Component({
   selector: 'app-user-register',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class UserRegisterComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private fileService: FileService) { }
 
   ngOnInit(): void {
   }
@@ -32,11 +33,39 @@ export class UserRegisterComponent implements OnInit {
       return
     }
 
+    await this.processImage()
+
     // korisnik ceka da mu menadzer odobri registraciju. Do tad se vraca na pocetnu stranu.
     this.user.status = "Pending"
     this.user.type = "Patient"
     this.userService.register(this.user)
     this.router.navigate(['']);
+  }
+
+  async processImage(): Promise<void> {
+    // ne obradjujemo sliku jer nije nijedna ucitana
+    if (!this.fileService.isFileSelected()) {
+      return
+    }
+
+    let isImageValid = await this.fileService.isImageValid()
+
+    if (!isImageValid) {
+      this.errorMessage = "Slika nije u dobrom formatu ili nije u dozvoljenim dimenzijama!"
+      return
+    }
+
+    let fileName: string = await this.onUpload()
+    this.user.profilePicture = "profile_pictures/" + fileName
+  }
+
+
+  onFileSelected(event) {
+    this.fileService.onFileSelected(event)
+  }
+
+  async onUpload(): Promise<string> {
+    return await this.fileService.onUpload(this.user.username)
   }
 
   areFieldsEmpty(): boolean {
