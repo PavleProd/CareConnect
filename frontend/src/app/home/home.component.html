@@ -60,7 +60,8 @@
     </button>
 </div>
 
-<h2>Nasi Specijalisti</h2>
+<br />
+<h2>Naši Specijalisti</h2>
 
 <div class="container mt-4 centered-form">
     <form class="d-flex justify-content-center align-items-center">
@@ -83,9 +84,9 @@
         <thead>
             <tr>
                 <th scope="col">Slika</th>
-                <th scope="col">Ime</th>
-                <th scope="col">Prezime</th>
-                <th scope="col">Specijalizacija</th>
+                <th scope="col" (click)="sort('name')">Ime <img [src]="getImage('name')" /></th>
+                <th scope="col" (click)="sort('surname')">Prezime <img [src]="getImage('surname')" /></th>
+                <th scope="col" (click)="sort('speciality')">Specijalizacija <img [src]="getImage('speciality')" /></th>
             </tr>
         </thead>
         <tbody>
@@ -100,6 +101,5 @@
     </table>
 </div>
 <br />
-
 
 <app-footer></app-footer>
