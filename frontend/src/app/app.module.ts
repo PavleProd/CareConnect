@@ -12,7 +12,12 @@ import { PatientComponent } from './patient/patient.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
+import { PatientHeaderComponent } from './patient-header/patient-header.component';
+import { ManagerHeaderComponent } from './manager-header/manager-header.component';
+import { PatientResetpasswordComponent } from './patient-resetpassword/patient-resetpassword.component';
+import { DoctorResetpasswordComponent } from './doctor-resetpassword/doctor-resetpassword.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { FooterComponent } from './footer/footer.component'
     DoctorComponent,
     DoctorRegisterComponent,
     UserHeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DoctorHeaderComponent,
+    PatientHeaderComponent,
+    ManagerHeaderComponent,
+    PatientResetpasswordComponent,
+    DoctorResetpasswordComponent
   ],
   imports: [
     BrowserModule,

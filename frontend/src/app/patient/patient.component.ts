@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(sessionStorage.getItem('user'))
+    this.profilePicturePath = "http://localhost:4000/" + this.user.profilePicture
   }
 
+  redirectToResetPassword() {
+    this.router.navigate(['patient/resetPassword'])
+  }
+
+  profilePicturePath: string
+  user: User
 }

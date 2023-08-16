@@ -30,14 +30,18 @@ export class UserLoginComponent implements OnInit {
       return
     }
 
-    localStorage.setItem("user", JSON.stringify(user))
+    sessionStorage.setItem("user", JSON.stringify(user))
     if (user.type == "Patient") {
-      this.router.navigate(["/patient"])
+      this.router.navigate(["/patient/profile"])
     }
     else if (user.type == "Doctor") {
-      this.router.navigate(["/doctor"])
+      this.router.navigate(["/doctor/profile"])
     }
 
+  }
+
+  back() {
+    this.router.navigate(['']);
   }
 
   username: string = "";

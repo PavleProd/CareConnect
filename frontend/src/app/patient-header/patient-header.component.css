@@ -1,0 +1,32 @@
+.logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    margin-left: 10px;
+}
+
+.custom-navbar {
+    height: 100px;
+}
+
+.custom-navbar .navbar-brand {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar .navbar-toggler {
+    margin-right: 15px;
+}
+
+.custom-navbar .navbar-nav {
+    margin-right: 10px;
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    background-color: #e3f2fd;
+}
