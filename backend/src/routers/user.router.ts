@@ -7,6 +7,10 @@ userRouter.route('/get').post(
     (req, res) => new UserController().get(req, res)
 )
 
+userRouter.route('/getDoctors').post(
+    (req, res) => new UserController().getDoctors(req, res)
+)
+
 userRouter.route('/add').post(
     (req, res) => new UserController().add(req, res)
 )

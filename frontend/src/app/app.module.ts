@@ -9,7 +9,10 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './patient/patient.component';
-import { DoctorComponent } from './doctor/doctor.component'
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
+import { UserHeaderComponent } from './user-header/user-header.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { DoctorComponent } from './doctor/doctor.component'
     UserRegisterComponent,
     HomeComponent,
     PatientComponent,
-    DoctorComponent
+    DoctorComponent,
+    DoctorRegisterComponent,
+    UserHeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

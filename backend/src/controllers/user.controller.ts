@@ -2,7 +2,7 @@ import express from 'express';
 import UserModel from '../models/user';
 
 export class UserController {
-    // get user by username and password
+    // dohvati korisnika po username-u i sifri
     get(req: express.Request, res: express.Response) {
         let username = req.body.username;
         let password = req.body.password;
@@ -14,7 +14,23 @@ export class UserController {
         })
     }
 
-    // add user to users collection
+    // dohvati sve doktore koji sadrze u imenu, prezimenu ili specijalnosti zadati string
+    getDoctors(req: express.Request, res: express.Response) {
+        let name = req.body.name
+        let surname = req.body.surname
+        let speciality = req.body.speciality
+
+        UserModel.find({
+            'type': "Doctor", 'status': "Approved", 'name': { $regex: name, $options: 'i' },
+            'surname': { $regex: surname, $options: 'i' }, 'speciality': { $regex: speciality, $options: 'i' }
+        }).then((doctors) => {
+            res.json(doctors);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    // dodaj korisnika u kolekciju
     add(req: express.Request, res: express.Response) {
         let user = new UserModel(req.body);
 
@@ -25,7 +41,7 @@ export class UserController {
         })
     }
 
-    // check if username is unique
+    // proveri da li je username jedinstven
     checkUsername(req: express.Request, res: express.Response) {
         let username = req.body.username;
 
@@ -41,7 +57,7 @@ export class UserController {
         })
     }
 
-    // check if email is unique
+    // proveri da li je email jedinstven
     checkEmail(req: express.Request, res: express.Response) {
         let email = req.body.email;
 

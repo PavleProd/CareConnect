@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { FileService } from '../services/file.service';
+import { Doctor } from '../models/doctor';
 
 @Component({
-  selector: 'app-user-register',
-  templateUrl: './user-register.component.html',
-  styleUrls: ['./user-register.component.css']
+  selector: 'app-doctor-register',
+  templateUrl: './doctor-register.component.html',
+  styleUrls: ['./doctor-register.component.css']
 })
-export class UserRegisterComponent implements OnInit {
+export class DoctorRegisterComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router, private fileService: FileService) { }
 
@@ -74,7 +74,8 @@ export class UserRegisterComponent implements OnInit {
 
   areFieldsEmpty(): boolean {
     if (this.user.username == "" || this.user.password == "" || this.user.name == "" || this.user.surname == ""
-      || this.user.address == "" || this.user.phone == "" || this.user.email == "") {
+      || this.user.address == "" || this.user.phone == "" || this.user.email == "" || this.user.department == ""
+      || this.user.speciality == "" || this.user.licenceNumber == null) {
       this.errorMessage = "Sva polja moraju biti popunjena!"
       return true
     }
@@ -142,7 +143,7 @@ export class UserRegisterComponent implements OnInit {
     return true
   }
 
-  user: User = new User()
+  user: Doctor = new Doctor()
   passwordConfirm: string = ""
   errorMessage: string = ""
 }

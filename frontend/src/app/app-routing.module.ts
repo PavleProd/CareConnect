@@ -5,6 +5,8 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './patient/patient.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'register', component: UserRegisterComponent },
   { path: 'patient', component: PatientComponent },
   { path: 'doctor', component: DoctorComponent },
+  { path: 'register/doctor', component: DoctorRegisterComponent },
+  { path: 'footer', component: FooterComponent }
 ];
 
 @NgModule({

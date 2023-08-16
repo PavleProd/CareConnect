@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-info,
+.copyright {
+    flex: 1;
+}
+
+.contact-info p,
+.copyright p {
+    margin: 0;
+    padding: 5px;
+}

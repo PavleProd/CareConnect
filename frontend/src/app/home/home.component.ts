@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Doctor } from '../models/doctor';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +10,24 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getDoctors(this.name, this.surname, this.speciality)
   }
 
-  redirectToLogin(): void {
-    this.router.navigate(['/login']);
+  getDoctors(name: string, surname: string, speciality: string) {
+    this.userService.getDoctors(name, surname, speciality).subscribe((doctors: Doctor[]) => {
+      this.doctors = doctors;
+    })
   }
 
-  redirectToRegister(): void {
-    this.router.navigate(['/register']);
+  search() {
+    this.getDoctors(this.name, this.surname, this.speciality)
   }
 
+  doctors: Doctor[]
+  name: string = ""
+  surname: string = ""
+  speciality: string = ""
 }

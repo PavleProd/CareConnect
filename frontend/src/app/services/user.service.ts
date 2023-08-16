@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { Doctor } from '../models/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,16 @@ export class UserService {
     }
 
     return response['response']
+  }
+
+  getDoctors(name: string, surname: string, speciality: string) {
+    const body = {
+      name: name,
+      surname: surname,
+      speciality: speciality
+    }
+
+    return this.httpClient.post(this.path + "/getDoctors", body)
   }
 
   path: String = "http://localhost:4000/users"

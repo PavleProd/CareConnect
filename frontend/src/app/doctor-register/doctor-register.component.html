@@ -39,6 +39,21 @@
                 <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone" required>
             </div>
             <div class="mb-3">
+                <label for="licenceNumber" class="form-label">Broj Licence</label>
+                <input type="text" class="form-control" id="licenceNumber" name="licenceNumber"
+                    [(ngModel)]="user.licenceNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="speciality" class="form-label">Specijalizacija</label>
+                <input type="text" class="form-control" id="speciality" name="speciality" [(ngModel)]="user.speciality"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="department" class="form-label">Ogranak</label>
+                <input type="text" class="form-control" id="department" name="department" [(ngModel)]="user.department"
+                    required>
+            </div>
+            <div class="mb-3">
                 <label for="profileImage" class="form-label">Dodaj profilnu fotografiju</label>
                 <input type="file" class="form-control" id="profileImage" (change)="onFileSelected($event)">
             </div>
