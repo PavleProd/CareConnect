@@ -17,7 +17,9 @@ import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
 import { PatientHeaderComponent } from './patient-header/patient-header.component';
 import { ManagerHeaderComponent } from './manager-header/manager-header.component';
 import { PatientResetpasswordComponent } from './patient-resetpassword/patient-resetpassword.component';
-import { DoctorResetpasswordComponent } from './doctor-resetpassword/doctor-resetpassword.component'
+import { DoctorResetpasswordComponent } from './doctor-resetpassword/doctor-resetpassword.component';
+import { PatientDoctorsComponent } from './patient-doctors/patient-doctors.component';
+import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-doctor-profile.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DoctorResetpasswordComponent } from './doctor-resetpassword/doctor-rese
     PatientHeaderComponent,
     ManagerHeaderComponent,
     PatientResetpasswordComponent,
-    DoctorResetpasswordComponent
+    DoctorResetpasswordComponent,
+    PatientDoctorsComponent,
+    PatientDoctorProfileComponent
   ],
   imports: [
     BrowserModule,

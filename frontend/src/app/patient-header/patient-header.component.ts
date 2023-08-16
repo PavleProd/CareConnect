@@ -27,4 +27,8 @@ export class PatientHeaderComponent implements OnInit {
     this.router.navigate(['patient/profile'])
   }
 
+  redirectToDoctors() {
+    this.router.navigate(['patient/doctors'])
+  }
+
 }

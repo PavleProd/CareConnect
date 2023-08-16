@@ -19,10 +19,11 @@ export class UserController {
         let name = req.body.name
         let surname = req.body.surname
         let speciality = req.body.speciality
+        let department = req.body.department
 
         UserModel.find({
             'type': "Doctor", 'status': "Approved", 'name': { $regex: name, $options: 'i' },
-            'surname': { $regex: surname, $options: 'i' }, 'speciality': { $regex: speciality, $options: 'i' }
+            'surname': { $regex: surname, $options: 'i' }, 'speciality': { $regex: speciality, $options: 'i' }, 'department': { $regex: department, $options: 'i' }
         }).then((doctors) => {
             res.json(doctors);
         }).catch((err) => {
@@ -70,6 +71,19 @@ export class UserController {
         }).catch((err) => {
             console.log(err);
             res.json({ 'response': "error" });
+        })
+    }
+
+    // promeni lozinku
+    changePassword(req: express.Request, res: express.Response) {
+        let username = req.body.username
+        let password = req.body.password
+
+        UserModel.updateOne({ 'username': username }, { $set: { 'password': password } }).then((user) => {
+            res.json({ 'response': true });
+        }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': false });
         })
     }
 }

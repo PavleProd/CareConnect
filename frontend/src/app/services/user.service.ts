@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { Doctor } from '../models/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -52,14 +51,24 @@ export class UserService {
     return response['response']
   }
 
-  getDoctors(name: string, surname: string, speciality: string) {
+  getDoctors(name: string, surname: string, speciality: string, department: string = "") {
     const body = {
       name: name,
       surname: surname,
-      speciality: speciality
+      speciality: speciality,
+      department: department
     }
 
     return this.httpClient.post(this.path + "/getDoctors", body)
+  }
+
+  async changePassword(username: string, password: string) {
+    const body = {
+      username: username,
+      password: password
+    }
+
+    await this.httpClient.post(this.path + "/changePassword", body).toPromise()
   }
 
   path: String = "http://localhost:4000/users"
