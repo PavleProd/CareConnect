@@ -1,0 +1,48 @@
+.centered-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 20px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-actions button {
+    margin: 5px;
+}
+
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

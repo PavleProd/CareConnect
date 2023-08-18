@@ -1,1 +1,29 @@
-<p>doctor works!</p>
+<app-doctor-header></app-doctor-header>
+
+<body>
+    <div class="container">
+        <h1>Profil Lekara</h1>
+        <div class="profile">
+            <img [src]="'http://localhost:4000/' + doctor.profilePicture" alt="Slika korisnika" class="profile-image">
+            <div class="profile-details">
+                <p><strong>Ime: </strong>{{doctor.name}}</p>
+                <p><strong>Prezime: </strong>{{doctor.surname}}</p>
+                <p><strong>Adresa: </strong>{{doctor.address}}</p>
+                <p><strong>Email: </strong>{{doctor.email}}</p>
+                <p><strong>Kontakt telefon: </strong>{{doctor.phone}}</p>
+                <p><strong>Broj Licence: </strong>{{doctor.licenceNumber}}</p>
+                <p><strong>Specijalizacija: </strong>{{doctor.speciality}}</p>
+                <p><strong>Ogranak: </strong>{{doctor.department}}</p>
+                <div class="profile-actions">
+                    <button class="btn btn-primary">Izmeni profil</button>
+                    <button class="btn btn-danger" (click)="redirectToResetPassword()">Resetuj lozinku</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+<app-footer></app-footer>

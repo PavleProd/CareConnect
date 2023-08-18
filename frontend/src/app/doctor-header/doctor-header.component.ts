@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Doctor } from '../models/doctor';
 
 @Component({
   selector: 'app-doctor-header',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.doctor = JSON.parse(sessionStorage.getItem('user'));
+
+    if (this.doctor == null) {
+      this.router.navigate(['']);
+    }
   }
+
+  redirectToProfile(): void {
+    this.router.navigate(['doctor']);
+  }
+
+  logout() {
+    sessionStorage.clear()
+    this.router.navigate([''])
+  }
+
+  doctor: Doctor
 
 }

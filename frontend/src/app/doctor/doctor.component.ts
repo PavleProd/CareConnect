@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Doctor } from '../models/doctor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.doctor = JSON.parse(sessionStorage.getItem('user'));
   }
+
+  redirectToResetPassword() {
+    this.router.navigate(['doctor/resetPassword'])
+  }
+
+  doctor: Doctor
 
 }

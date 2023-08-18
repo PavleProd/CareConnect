@@ -1,1 +1,26 @@
-<p>doctor-header works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary custom-navbar sticky-header">
+    <a class="navbar-brand d-flex align-items-center" href="doctor">
+        <img src="http://localhost:4000/logo.png" alt="logo" width="60" height="60">
+        <span class="logo">Care Connect</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav ">
+            <button type="button" class="btn btn-outline-light my-2 my-sm-0 btn-lg" style="margin-right: 10px;"
+                (click)="redirectToProfile()">Pacijenti</button>
+            <button type="button" class="btn btn-outline-light my-2 my-sm-0 btn-lg" style="margin-right: 10px;"
+                (click)="logout()">Odjava</button>
+        </div>
+    </div>
+</nav>
+
+<body class="navbar-dark bg-primary">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
