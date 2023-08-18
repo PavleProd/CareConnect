@@ -27,6 +27,10 @@ export class ManagerHeaderComponent implements OnInit {
     this.router.navigate(['manager/doctors']);
   }
 
+  redirectToExaminations(): void {
+    this.router.navigate(['manager/examinations']);
+  }
+
   logout() {
     sessionStorage.clear()
     this.router.navigate(['manager'])

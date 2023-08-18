@@ -12,6 +12,7 @@ import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-
 import { ManagerLoginComponent } from './manager-login/manager-login.component';
 import { ManagerPatientsComponent } from './manager-patients/manager-patients.component';
 import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
+import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'doctor/resetPassword', component: DoctorResetpasswordComponent },
   { path: 'manager', component: ManagerLoginComponent },
   { path: 'manager/patients', component: ManagerPatientsComponent },
-  { path: 'manager/doctors', component: ManagerDoctorsComponent }
+  { path: 'manager/doctors', component: ManagerDoctorsComponent },
+  { path: 'manager/examinations', component: ManagerExaminationsComponent }
 ];
 
 @NgModule({

@@ -21,7 +21,8 @@ import { PatientDoctorsComponent } from './patient-doctors/patient-doctors.compo
 import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-doctor-profile.component';
 import { ManagerLoginComponent } from './manager-login/manager-login.component';
 import { ManagerPatientsComponent } from './manager-patients/manager-patients.component';
-import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component'
+import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
+import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.compo
     PatientDoctorProfileComponent,
     ManagerLoginComponent,
     ManagerPatientsComponent,
-    ManagerDoctorsComponent
+    ManagerDoctorsComponent,
+    ManagerExaminationsComponent
   ],
   imports: [
     BrowserModule,

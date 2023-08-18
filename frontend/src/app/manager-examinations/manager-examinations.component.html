@@ -1,0 +1,30 @@
+<app-manager-header></app-manager-header>
+
+<div class="center-screen">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Specijalizacija</th>
+                    <th>Vrste pregleda</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let speciality of specialities">
+                    <tr>
+                        <td colspan="2">{{ speciality.name }}</td>
+                    </tr>
+                    <tr *ngFor="let examination of speciality.examinations">
+                        <td></td>
+                        <td>{{ examination }}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+<app-footer></app-footer>

@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import userRouter from './routers/user.router';
 import fileRouter from './routers/file.router';
 import managerRouter from './routers/manager.router';
+import examinationRouter from './routers/examination.router';
+import specialityRouter from './routers/speciality.router';
 
 const assetsPath: string = './assets/'
 
@@ -21,9 +23,12 @@ connection.once('open', () => {
 })
 
 const router = express.Router();
+
 router.use('/users', userRouter)
 router.use('/files', fileRouter)
 router.use('/managers', managerRouter)
+router.use('/examinations', examinationRouter)
+router.use('/specialities', specialityRouter)
 
 app.use('/', router);
 
