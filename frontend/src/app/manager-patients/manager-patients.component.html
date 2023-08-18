@@ -1,0 +1,74 @@
+<app-manager-header></app-manager-header>
+
+<div class="center-screen">
+    <div class="container">
+
+        <div class="col-md-6 table-container">
+            <h1>Prihvaćeni pacijenti</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Profilna fotografija</th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Adresa</th>
+                        <th>Mail</th>
+                        <th>Broj telefona</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of approvedPatients">
+                        <td><img [src]="'http://localhost:4000/' + patient.profilePicture" alt="Profilna slika">
+                        </td>
+                        <td>{{patient.name}}</td>
+                        <td>{{patient.surname}}</td>
+                        <td>{{patient.address}}</td>
+                        <td>{{patient.email}}</td>
+                        <td>{{patient.phone}}</td>
+                        <td>
+                            <button class="btn btn-info">Izmeni</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 table-container">
+            <h1>Pacijenti na čekanju</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Profilna fotografija</th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Adresa</th>
+                        <th>Mail</th>
+                        <th>Broj telefona</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of pendingPatients">
+                        <td><img [src]="'http://localhost:4000/' + patient.profilePicture" alt=" Profilna slika">
+                        </td>
+                        <td>{{patient.name}}</td>
+                        <td>{{patient.surname}}</td>
+                        <td>{{patient.address}}</td>
+                        <td>{{patient.email}}</td>
+                        <td>{{patient.phone}}</td>
+                        <td>
+                            <button class="btn btn-success" (click)="approvePatient(patient)">Potvrdi</button>
+                            <button class="btn btn-danger" (click)="rejectPatient(patient)">Odbij</button>
+                            <button type="button" class="btn btn-info">Izmeni</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+<app-footer></app-footer>

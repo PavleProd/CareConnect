@@ -43,8 +43,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let doctor of doctors">
-                        <td class="image-column"><img [src]="'http://localhost:4000/' + doctor.profilePicture"
-                                alt="Slika lekara"></td>
+                        <td class="image-column" (click)="redirectToDoctorsProfile(doctor)"><img
+                                [src]="'http://localhost:4000/' + doctor.profilePicture" alt="Slika lekara"></td>
                         <td>{{ doctor.name }}</td>
                         <td>{{ doctor.surname }}</td>
                         <td>{{ doctor.speciality }}</td>

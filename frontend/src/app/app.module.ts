@@ -10,7 +10,6 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './patient/patient.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DoctorHeaderComponent } from './doctor-header/doctor-header.component';
@@ -19,7 +18,10 @@ import { ManagerHeaderComponent } from './manager-header/manager-header.componen
 import { PatientResetpasswordComponent } from './patient-resetpassword/patient-resetpassword.component';
 import { DoctorResetpasswordComponent } from './doctor-resetpassword/doctor-resetpassword.component';
 import { PatientDoctorsComponent } from './patient-doctors/patient-doctors.component';
-import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-doctor-profile.component'
+import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-doctor-profile.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
+import { ManagerPatientsComponent } from './manager-patients/manager-patients.component';
+import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +31,6 @@ import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-
     HomeComponent,
     PatientComponent,
     DoctorComponent,
-    DoctorRegisterComponent,
     UserHeaderComponent,
     FooterComponent,
     DoctorHeaderComponent,
@@ -38,7 +39,10 @@ import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-
     PatientResetpasswordComponent,
     DoctorResetpasswordComponent,
     PatientDoctorsComponent,
-    PatientDoctorProfileComponent
+    PatientDoctorProfileComponent,
+    ManagerLoginComponent,
+    ManagerPatientsComponent,
+    ManagerDoctorsComponent
   ],
   imports: [
     BrowserModule,

@@ -22,10 +22,21 @@ export class UserController {
         let department = req.body.department
 
         UserModel.find({
-            'type': "Doctor", 'status': "Approved", 'name': { $regex: name, $options: 'i' },
+            'type': "Doctor", 'name': { $regex: name, $options: 'i' },
             'surname': { $regex: surname, $options: 'i' }, 'speciality': { $regex: speciality, $options: 'i' }, 'department': { $regex: department, $options: 'i' }
         }).then((doctors) => {
             res.json(doctors);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    // dohvati sve pacijente po statusu
+    getPatients(req: express.Request, res: express.Response) {
+        let status = req.body.status
+
+        UserModel.find({ 'type': "Patient", 'status': status }).then((patients) => {
+            res.json(patients);
         }).catch((err) => {
             console.log(err);
         })
@@ -38,7 +49,8 @@ export class UserController {
         user.save().then((user) => {
             res.json({ 'user': true });
         }).catch((err) => {
-            res.status(400).send('Failed to create new record');
+            console.log(err)
+            res.json({ 'user': false });
         })
     }
 
@@ -82,6 +94,20 @@ export class UserController {
         UserModel.updateOne({ 'username': username }, { $set: { 'password': password } }).then((user) => {
             res.json({ 'response': true });
         }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': false });
+        })
+    }
+
+    // promeni status korisnika
+    changeStatus(req: express.Request, res: express.Response) {
+        let username = req.body.username
+        let status = req.body.status
+
+        UserModel.updateOne({ 'username': username }, { $set: { 'status': status } }).then((user) => {
+            res.json({ 'response': true });
+        }
+        ).catch((err) => {
             console.log(err);
             res.json({ 'response': false });
         })

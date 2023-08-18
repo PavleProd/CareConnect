@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Manager } from '../models/manager';
 
 @Component({
   selector: 'app-manager-header',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.manager = JSON.parse(sessionStorage.getItem('manager'));
+
+    if (this.manager == null) {
+      this.router.navigate(['manager']);
+    }
   }
 
+  redirectToPatients(): void {
+    this.router.navigate(['manager/patients']);
+  }
+
+  redirectToDoctors(): void {
+    this.router.navigate(['manager/doctors']);
+  }
+
+  logout() {
+    sessionStorage.clear()
+    this.router.navigate(['manager'])
+  }
+
+  manager: Manager
 }

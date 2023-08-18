@@ -46,6 +46,11 @@ export class PatientDoctorsComponent implements OnInit {
     return (a: Doctor, b: Doctor) => a[field] > b[field] ? 1 : -1; // rastuce
   }
 
+  redirectToDoctorsProfile(doctor: Doctor) {
+    sessionStorage.setItem('doctor', JSON.stringify(doctor))
+    this.router.navigate(['/patient/doctors/' + doctor.username])
+  }
+
   myMap = new Map<string, number>([['name', 1], ['surname', 1], ['speciality', 1], ['department', 1]])
   sortDecreasingImage = "http://localhost:4000/icons/sort-down.svg"
   sortIncreasingImage = "http://localhost:4000/icons/sort-up.svg"

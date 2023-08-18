@@ -1,0 +1,112 @@
+<app-manager-header></app-manager-header>
+
+<div class="container centered-screen">
+    <div class="global-container">
+        <div class="table-container">
+            <h1>Prihvaćeni lekari</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Profilna fotografija</th>
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Adresa</th>
+                        <th>Mail</th>
+                        <th>Broj telefona</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of approvedDoctors">
+                        <td><img [src]="'http://localhost:4000/' + doctor.profilePicture" alt="Profilna slika">
+                        </td>
+                        <td>{{doctor.name}}</td>
+                        <td>{{doctor.surname}}</td>
+                        <td>{{doctor.address}}</td>
+                        <td>{{doctor.email}}</td>
+                        <td>{{doctor.phone}}</td>
+                        <td>
+                            <button class="btn btn-info">Izmeni</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6 content-container">
+            <h1> Dodaj novog lekara</h1>
+            <div class="card p-4" style="background-color: #e6f7ff;">
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Korisničko ime</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            [(ngModel)]="user.username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Lozinka</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            [(ngModel)]="user.password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password2" class="form-label">Potvrdi lozinku</label>
+                        <input type="password" class="form-control" id="password2" name="password2"
+                            [(ngModel)]="passwordConfirm" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Ime</label>
+                        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">Prezime</label>
+                        <input type="text" class="form-control" id="surname" name="surname" [(ngModel)]="user.surname"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Adresa</label>
+                        <input type="text" class="form-control" id="address" name="address" [(ngModel)]="user.address"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Kontakt telefon</label>
+                        <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="licenceNumber" class="form-label">Broj Licence</label>
+                        <input type="text" class="form-control" id="licenceNumber" name="licenceNumber"
+                            [(ngModel)]="user.licenceNumber" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="speciality" class="form-label">Specijalizacija</label>
+                        <input type="text" class="form-control" id="speciality" name="speciality"
+                            [(ngModel)]="user.speciality" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="department" class="form-label">Ogranak</label>
+                        <input type="text" class="form-control" id="department" name="department"
+                            [(ngModel)]="user.department" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="profileImage" class="form-label">Dodaj profilnu fotografiju</label>
+                        <input type="file" class="form-control" id="profileImage" (change)="onFileSelected($event)">
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="btn btn-primary" (click)="register()">Registruj Lekara</button>
+
+                    </div>
+                    <div class="oswald">
+                        {{errorMessage}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

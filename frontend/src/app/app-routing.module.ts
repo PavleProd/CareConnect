@@ -5,11 +5,13 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './patient/patient.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
 import { PatientResetpasswordComponent } from './patient-resetpassword/patient-resetpassword.component';
 import { DoctorResetpasswordComponent } from './doctor-resetpassword/doctor-resetpassword.component';
 import { PatientDoctorsComponent } from './patient-doctors/patient-doctors.component';
 import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-doctor-profile.component';
+import { ManagerLoginComponent } from './manager-login/manager-login.component';
+import { ManagerPatientsComponent } from './manager-patients/manager-patients.component';
+import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'patient/doctors/:username', component: PatientDoctorProfileComponent },
   { path: 'doctor/profile', component: DoctorComponent },
   { path: 'doctor/resetPassword', component: DoctorResetpasswordComponent },
-  { path: 'register/doctor', component: DoctorRegisterComponent },
+  { path: 'manager', component: ManagerLoginComponent },
+  { path: 'manager/patients', component: ManagerPatientsComponent },
+  { path: 'manager/doctors', component: ManagerDoctorsComponent }
 ];
 
 @NgModule({

@@ -37,7 +37,11 @@ export class UserRegisterComponent implements OnInit {
       return
     }
 
-    await this.processImage()
+    const isProcessed = await this.processImage()
+
+    if (!isProcessed) {
+      return
+    }
 
     // korisnik ceka da mu menadzer odobri registraciju. Do tad se vraca na pocetnu stranu.
     this.user.status = "Pending"
@@ -46,21 +50,22 @@ export class UserRegisterComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  async processImage(): Promise<void> {
+  async processImage(): Promise<boolean> {
     // ne obradjujemo sliku jer nije nijedna ucitana
     if (!this.fileService.isFileSelected()) {
-      return
+      return true
     }
 
     let isImageValid = await this.fileService.isImageValid()
 
     if (!isImageValid) {
       this.errorMessage = "Slika nije u dobrom formatu ili nije u dozvoljenim dimenzijama!"
-      return
+      return false
     }
 
     let fileName: string = await this.onUpload()
     this.user.profilePicture = "profile_pictures/" + fileName
+    return true
   }
 
 

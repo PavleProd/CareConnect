@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
-import { FileService } from '../services/file.service';
 import { Doctor } from '../models/doctor';
+import { FileService } from '../services/file.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-doctor-register',
-  templateUrl: './doctor-register.component.html',
-  styleUrls: ['./doctor-register.component.css']
+  selector: 'app-manager-doctors',
+  templateUrl: './manager-doctors.component.html',
+  styleUrls: ['./manager-doctors.component.css']
 })
-export class DoctorRegisterComponent implements OnInit {
+export class ManagerDoctorsComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router, private fileService: FileService) { }
+  constructor(private userService: UserService, private fileService: FileService, private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  back() {
-    this.router.navigate(['']);
+    this.userService.getDoctors("", "", "", "").subscribe((response: Doctor[]) => {
+      this.approvedDoctors = response
+    })
   }
 
   async register(): Promise<void> {
@@ -37,30 +36,32 @@ export class DoctorRegisterComponent implements OnInit {
       return
     }
 
-    await this.processImage()
+    const isProcessed = await this.processImage()
+    if (!isProcessed) {
+      return
+    }
 
-    // korisnik ceka da mu menadzer odobri registraciju. Do tad se vraca na pocetnu stranu.
-    this.user.status = "Pending"
-    this.user.type = "Patient"
-    this.userService.register(this.user)
-    this.router.navigate(['']);
+    this.user.type = "Doctor"
+    await this.userService.register(this.user)
+
   }
 
-  async processImage(): Promise<void> {
+  async processImage(): Promise<boolean> {
     // ne obradjujemo sliku jer nije nijedna ucitana
     if (!this.fileService.isFileSelected()) {
-      return
+      return true
     }
 
     let isImageValid = await this.fileService.isImageValid()
 
     if (!isImageValid) {
       this.errorMessage = "Slika nije u dobrom formatu ili nije u dozvoljenim dimenzijama!"
-      return
+      return false
     }
 
     let fileName: string = await this.onUpload()
     this.user.profilePicture = "profile_pictures/" + fileName
+    return true
   }
 
 
@@ -146,4 +147,6 @@ export class DoctorRegisterComponent implements OnInit {
   user: Doctor = new Doctor()
   passwordConfirm: string = ""
   errorMessage: string = ""
+
+  approvedDoctors: Doctor[]
 }

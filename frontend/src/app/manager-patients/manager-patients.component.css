@@ -1,0 +1,33 @@
+.center-screen {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.table-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.table img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.image-column img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.col-md-6 {
+    margin-bottom: 60px;
+    /* Povećana vrednost margine za veći razmak */
+}

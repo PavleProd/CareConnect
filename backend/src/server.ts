@@ -3,6 +3,7 @@ import cors from 'cors'
 import mongoose from 'mongoose';
 import userRouter from './routers/user.router';
 import fileRouter from './routers/file.router';
+import managerRouter from './routers/manager.router';
 
 const assetsPath: string = './assets/'
 
@@ -22,6 +23,7 @@ connection.once('open', () => {
 const router = express.Router();
 router.use('/users', userRouter)
 router.use('/files', fileRouter)
+router.use('/managers', managerRouter)
 
 app.use('/', router);
 

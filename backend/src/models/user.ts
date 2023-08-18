@@ -26,7 +26,7 @@ let User = new Schema({
     },
     type: {
         type: String,
-        enum: ['Patient', 'Doctor', 'Manager'],
+        enum: ['Patient', 'Doctor'],
     },
     profilePicture: {
         type: String,

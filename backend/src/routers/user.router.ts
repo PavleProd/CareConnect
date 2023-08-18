@@ -11,6 +11,10 @@ userRouter.route('/getDoctors').post(
     (req, res) => new UserController().getDoctors(req, res)
 )
 
+userRouter.route('/getPatients').post(
+    (req, res) => new UserController().getPatients(req, res)
+)
+
 userRouter.route('/add').post(
     (req, res) => new UserController().add(req, res)
 )
@@ -25,6 +29,10 @@ userRouter.route('/checkEmail').post(
 
 userRouter.route('/changePassword').post(
     (req, res) => new UserController().changePassword(req, res)
+)
+
+userRouter.route('/changeStatus').post(
+    (req, res) => new UserController().changeStatus(req, res)
 )
 
 export default userRouter;

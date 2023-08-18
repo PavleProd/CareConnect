@@ -56,10 +56,18 @@ export class UserService {
       name: name,
       surname: surname,
       speciality: speciality,
-      department: department
+      department: department,
     }
 
     return this.httpClient.post(this.path + "/getDoctors", body)
+  }
+
+  getPatients(status = "Approved") {
+    const body = {
+      status: status
+    }
+
+    return this.httpClient.post(this.path + "/getPatients", body)
   }
 
   async changePassword(username: string, password: string) {
@@ -69,6 +77,15 @@ export class UserService {
     }
 
     await this.httpClient.post(this.path + "/changePassword", body).toPromise()
+  }
+
+  async changeStatus(username: string, status: string) {
+    const body = {
+      username: username,
+      status: status
+    }
+
+    await this.httpClient.post(this.path + "/changeStatus", body).toPromise()
   }
 
   path: String = "http://localhost:4000/users"
