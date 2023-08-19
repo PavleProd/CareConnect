@@ -14,9 +14,11 @@ export class ExaminationController {
             let speciality = await SpecialityModel.findOne({ name: specialityName });
             speciality.examinations.push(examination._id);
             await speciality.save();
+            res.json({ 'message': 'ok' })
         }
         catch (err) {
             console.log(err)
+            res.json({ 'message': 'error' })
         }
     }
 
@@ -27,9 +29,11 @@ export class ExaminationController {
         try {
             let examination = await ExaminationModel.findOneAndDelete({ name: examinationName })
             await SpecialityModel.findOneAndUpdate({ name: specialityName }, { $pull: { examinations: examination._id } })
+            res.json({ 'message': 'ok' })
         }
         catch (err) {
             console.log(err)
+            res.json({ 'message': 'error' })
         }
     }
 
@@ -38,8 +42,11 @@ export class ExaminationController {
         let examinationName = req.body.examination
         let status = req.body.status
 
-        ExaminationModel.findOneAndUpdate({ name: examinationName }, { status: status }).catch((err) => {
+        ExaminationModel.findOneAndUpdate({ name: examinationName }, { status: status }).then((resp) => {
+            res.json({ 'message': 'ok' })
+        }).catch((err) => {
             console.log(err)
+            res.json({ 'message': 'error' })
         })
     }
 }

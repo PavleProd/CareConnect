@@ -13,7 +13,8 @@ const Examination = new Schema({
     },
     duration: {
         type: Number,
-        default: 30
+        default: 30,
+        required: true
     },
     price: {
         type: Number,
