@@ -13,16 +13,12 @@ const Examination = new Schema({
     },
     duration: {
         type: Number,
-        required: true
+        default: 30
     },
     price: {
         type: Number,
         required: true
-    },
-    speciality: {
-        type: String,
-        required: true
     }
 })
 
-export default mongoose.model("ExaminationMdeol", Examination, "examinations")
+export default mongoose.model("ExaminationModel", Examination, "examinations")

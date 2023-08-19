@@ -7,9 +7,10 @@ const Speciality = new Schema({
         type: String,
         required: true
     },
-    examinations: {
-        type: Array
-    }
+    examinations: [{
+        type: Schema.Types.ObjectId,
+        ref: "ExaminationModel"
+    }]
 })
 
 export default mongoose.model("SpecialityModel", Speciality, "specialities")

@@ -22,7 +22,8 @@ import { PatientDoctorProfileComponent } from './patient-doctor-profile/patient-
 import { ManagerLoginComponent } from './manager-login/manager-login.component';
 import { ManagerPatientsComponent } from './manager-patients/manager-patients.component';
 import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
-import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component'
+import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component';
+import { ManagerCreateExaminationComponent } from './manager-create-examination/manager-create-examination.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ManagerExaminationsComponent } from './manager-examinations/manager-exa
     ManagerLoginComponent,
     ManagerPatientsComponent,
     ManagerDoctorsComponent,
-    ManagerExaminationsComponent
+    ManagerExaminationsComponent,
+    ManagerCreateExaminationComponent,
   ],
   imports: [
     BrowserModule,

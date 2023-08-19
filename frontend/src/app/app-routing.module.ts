@@ -13,6 +13,7 @@ import { ManagerLoginComponent } from './manager-login/manager-login.component';
 import { ManagerPatientsComponent } from './manager-patients/manager-patients.component';
 import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
 import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component';
+import { ManagerCreateExaminationComponent } from './manager-create-examination/manager-create-examination.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'manager', component: ManagerLoginComponent },
   { path: 'manager/patients', component: ManagerPatientsComponent },
   { path: 'manager/doctors', component: ManagerDoctorsComponent },
-  { path: 'manager/examinations', component: ManagerExaminationsComponent }
+  { path: 'manager/examinations', component: ManagerExaminationsComponent },
+  { path: 'manager/examinations/addExamination', component: ManagerCreateExaminationComponent },
 ];
 
 @NgModule({

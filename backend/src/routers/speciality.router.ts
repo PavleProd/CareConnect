@@ -7,4 +7,8 @@ specialityRouter.route('/get').post(
     (req, res) => new SpecialityController().get(req, res)
 )
 
+specialityRouter.route('/add').post(
+    (req, res) => new SpecialityController().add(req, res)
+)
+
 export default specialityRouter

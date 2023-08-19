@@ -13,7 +13,10 @@
                 <input type="password" class="form-control" name="InputPassword" placeholder="Lozinka"
                     [(ngModel)]="password">
             </div>
-            <button type="button" class="btn btn-primary" (click)="login()">Prijava</button>
+            <div class="button-container">
+                <button type="button" class="btn btn-primary" (click)="login()">Registruj se</button>
+                <button type="button" class="btn btn-primary" (click)="back()">Nazad</button>
+            </div>
             <div class="oswald">
                 {{errorMessage}}
             </div>

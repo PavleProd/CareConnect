@@ -1,29 +1,86 @@
 <app-manager-header></app-manager-header>
 
-<div class="center-screen">
-    <div class="container">
-        <table class="table">
-            <thead>
+
+<div class="container">
+    <h1 class="h1-style">Prihvaceni pregledi</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Naziv pregleda</th>
+                <th>Trajanje</th>
+                <th>Cena</th>
+                <th>Akcija</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let speciality of specialities">
                 <tr>
-                    <th>Specijalizacija</th>
-                    <th>Vrste pregleda</th>
+                    <td colspan="4" class="oswald">{{ speciality.name }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngFor="let speciality of specialities">
-                    <tr>
-                        <td colspan="2">{{ speciality.name }}</td>
-                    </tr>
-                    <tr *ngFor="let examination of speciality.examinations">
-                        <td></td>
-                        <td>{{ examination }}</td>
-                    </tr>
-                </ng-container>
-            </tbody>
-        </table>
+                <tr *ngFor="let examination of speciality.examinations">
+                    <ng-container *ngIf="examination.status === 'Approved'">
+                        <td>{{ examination.name }}</td>
+                        <td>{{ examination.duration }} min</td>
+                        <td>{{ examination.price }} RSD</td>
+                        <td>
+                            <button class="btn btn-info">Izmeni</button>
+                            <button class="btn btn-danger"
+                                (click)="deleteExamination(examination.name, speciality.name)">Obrisi</button>
+                        </td>
+                    </ng-container>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between">
+        <div class="mr-auto">
+            <input class="form-control" placeholder="unesi specijalizaciju" [(ngModel)]="specialityName">
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" (click)="redirectToAddExamination()">Dodaj
+                Vrstu pregleda</button>
+        </div>
+    </div>
+    <div class="text-right">
+        <button type="button" class="btn btn-primary" (click)="addSpeciality()">Dodaj Specijalizaciju</button>
     </div>
 
 
+</div>
+
+<div class="container">
+    <h1>Zahtevi za pregledima</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Naziv pregleda</th>
+                <th>Trajanje</th>
+                <th>Cena</th>
+                <th>Akcija</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let speciality of specialities">
+                <tr>
+                    <td colspan="4" class="oswald">{{ speciality.name }}</td>
+                </tr>
+                <tr *ngFor="let examination of speciality.examinations">
+                    <ng-container *ngIf="examination.status === 'Pending'">
+                        <td>{{ examination.name }}</td>
+                        <td>{{ examination.duration }} RSD</td>
+                        <td>{{ examination.price }} min</td>
+                        <td>
+                            <button class="btn btn-success"
+                                (click)="approveExamination(examination.name)">Potvrdi</button>
+                            <button class="btn btn-info">Izmeni</button>
+                            <button class="btn btn-danger"
+                                (click)="deleteExamination(examination.name, speciality.name)">Odbij</button>
+                        </td>
+                    </ng-container>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
 </div>
 
 
