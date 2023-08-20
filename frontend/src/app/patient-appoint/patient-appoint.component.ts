@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../models/doctor';
 import { User } from '../models/user';
 import { Examination } from '../models/examination';
+import { AppointmentService } from '../services/appointment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-appoint',
@@ -10,7 +12,7 @@ import { Examination } from '../models/examination';
 })
 export class PatientAppointComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit(): void {
     this.doctor = JSON.parse(sessionStorage.getItem('doctor'))
@@ -18,23 +20,41 @@ export class PatientAppointComponent implements OnInit {
     this.examination = JSON.parse(sessionStorage.getItem('examination'))
   }
 
-  makeAppointment() {
+  async makeAppointment() {
     this.errorMessage = ""
 
-    this.checkDateAndTime()
+    let dateAndTime = await this.checkDateAndTime()
+
+    if (dateAndTime == null) {
+      return
+    }
+
+    this.appointmentService.addApointment(this.user.username, this.doctor.username, dateAndTime, this.examination.name, "Pending")
+
+    alert("Uspesno ste zakazali pregled")
+    this.router.navigate(['/patient/appointments'])
   }
 
   // proverava da li je datum ispravan i ako jeste vraca taj datum i vreme, u suprtonom vraca null
-  checkDateAndTime(): Date {
+  async checkDateAndTime(): Promise<Date> {
     if (this.date == null || this.time == null) {
       this.errorMessage = "Morate uneti datum i vreme"
       return null
     }
 
-    const dateAndTime = this.createDate()
+    const dateAndTime: Date = this.createDate()
 
     if (dateAndTime < new Date()) {
       this.errorMessage = "Datum i vreme moraju biti u budućnosti"
+      return null
+    }
+
+    const isDoctorAvailable = await this.appointmentService.isDoctorAvailable(this.doctor.username, dateAndTime,
+      this.examination.name, this.examination.duration)
+
+
+    if (!isDoctorAvailable) {
+      this.errorMessage = "Doktor nije slobodan u tom terminu"
       return null
     }
 

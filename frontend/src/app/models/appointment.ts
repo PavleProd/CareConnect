@@ -3,4 +3,5 @@ export class Appointment {
     doctor: string
     dateAndTime: Date
     examination: string
+    status: string // Approved | Pending
 }

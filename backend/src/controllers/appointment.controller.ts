@@ -40,9 +40,9 @@ export class AppointmentController {
     // proverava da li je doktor slobodan u odredjenom terminu
     async checkIfDoctorIsFree(req: express.Request, res: express.Response) {
         let doctorName = req.body.doctor
-        let startDateTime = req.body.date
+        let startDateTime: Date = new Date(req.body.date)
         let examinationDuration = req.body.duration // trajanje pregleda u minutima
-        let examinationName = req.body.examination
+        let examinationName = req.body.examinationName
 
         // 60000 da bi se konvertovalo iz milisekunde u minute
         let endDateTime = new Date(startDateTime.getTime() + examinationDuration * 60000)
@@ -51,22 +51,22 @@ export class AppointmentController {
             let appointments = await AppointmentModel.find({ 'doctor': doctorName })
 
             for (let appointment of appointments) {
-                let appointmentStartDateTime = new Date(appointment.date)
+                let appointmentStartDateTime = new Date(appointment.dateAndTime)
 
                 let examination = await ExaminationModel.findOne({ name: examinationName })
-
-                let appointmentEndDateTime = new Date(appointment.date.getTime() + examination.duration * 60000)
+                let appointmentEndDateTime = new Date(appointment.dateAndTime.getTime() + examination.duration * 60000)
 
                 if (startDateTime >= appointmentStartDateTime && startDateTime <= appointmentEndDateTime) {
                     res.json({ 'available': false })
+                    return
                 }
                 else if (endDateTime >= appointmentStartDateTime && endDateTime <= appointmentEndDateTime) {
                     res.json({ 'available': false })
-                }
-                else {
-                    res.json({ 'available': true })
+                    return
                 }
             }
+
+            res.json({ 'available': true })
         }
         catch (err) {
             console.log(err)

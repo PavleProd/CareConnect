@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
-    date: {
+    dateAndTime: {
         type: Date,
         required: true
     },
@@ -15,6 +15,11 @@ const appointmentSchema = new mongoose.Schema({
     },
     patient: {
         type: String,
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['Approved', 'Pending'],
         required: true
     }
 })

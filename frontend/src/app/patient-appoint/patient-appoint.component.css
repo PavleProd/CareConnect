@@ -18,6 +18,12 @@
     border: 1px solid #ccc;
 }
 
+.oswald {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    color: red
+}
+
 
 h1 {
     font-family: 'oswald', sans-serif;
