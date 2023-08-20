@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "64e0d475535911b50dfb3293"
+  },
+  "name": "Dermatolog",
+  "examinations": [
+    {
+      "$oid": "64e0eb1a7adcd8f0ccedf3bf"
+    }
+  ],
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "64e0dd9c314c982ce249c224"
+  },
+  "name": "Nutricionista",
+  "examinations": [
+    {
+      "$oid": "64e0ebb7a611930b1012e39b"
+    }
+  ],
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "64e0ec06a611930b1012e3a2"
+  },
+  "name": "Psihijatar",
+  "examinations": [
+    {
+      "$oid": "64e0fff141ea43be9bf148c7"
+    },
+    {
+      "$oid": "64e107d56d875ebbe4cb74be"
+    },
+    {
+      "$oid": "64e1080e6d875ebbe4cb74c2"
+    },
+    {
+      "$oid": "64e1082d82bc10196a3b3cb6"
+    },
+    {
+      "$oid": "64e1088dbabd6ab41cc42540"
+    },
+    {
+      "$oid": "64e10951babd6ab41cc42579"
+    }
+  ],
+  "__v": 10
+}]

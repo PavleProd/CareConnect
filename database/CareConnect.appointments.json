@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "64e287c50ff555a9be6bb45f"
+  },
+  "dateAndTime": {
+    "$date": "2023-09-30T22:00:00.000Z"
+  },
+  "examination": "Pregled Ishrane",
+  "doctor": "DjosLjub",
+  "patient": "SlavenMilan",
+  "status": "Pending",
+  "__v": 0
+}]

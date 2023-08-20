@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "64e0eb1a7adcd8f0ccedf3bf"
+  },
+  "name": "Lecenje akni",
+  "duration": 20,
+  "price": 1500,
+  "__v": 0,
+  "status": "Approved"
+},
+{
+  "_id": {
+    "$oid": "64e0ebb7a611930b1012e39b"
+  },
+  "name": "Pregled Ishrane",
+  "duration": 45,
+  "price": 2500,
+  "__v": 0,
+  "status": "Approved"
+},
+{
+  "_id": {
+    "$oid": "64e0fff141ea43be9bf148c7"
+  },
+  "name": "Bračno savetovanje",
+  "status": "Approved",
+  "duration": 60,
+  "price": 3000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e1082d82bc10196a3b3cb6"
+  },
+  "name": "Psihoterapija",
+  "status": "Approved",
+  "duration": 60,
+  "price": 5000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e10951babd6ab41cc42579"
+  },
+  "name": "Psiholoska procena",
+  "status": "Approved",
+  "duration": 30,
+  "price": 1500,
+  "__v": 0
+}]

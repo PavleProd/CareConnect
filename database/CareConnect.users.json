@@ -1,0 +1,162 @@
+[{
+  "_id": {
+    "$oid": "64da77051c2f2dc09fbd0959"
+  },
+  "username": "PavleProd",
+  "password": "Lozinka123@",
+  "name": "Pavle",
+  "surname": "Prodanovic",
+  "address": "Dobrivoja Jovanovica 12a",
+  "phone": "+381612212042",
+  "email": "pavle.prodanovic01@gmail.com",
+  "type": "Doctor",
+  "profilePicture": "profile_pictures/PavleProd.jpg",
+  "status": "Approved",
+  "__v": 0,
+  "department": "Beograd",
+  "licenceNumber": 23456,
+  "speciality": "Dermatolog"
+},
+{
+  "_id": {
+    "$oid": "64da79af1c2f2dc09fbd095d"
+  },
+  "username": "AntonIgor",
+  "password": "VolimKendo123!",
+  "name": "Anton",
+  "surname": "Igorijevic",
+  "address": "Danijele Ivovic 12a",
+  "phone": "+3812345678",
+  "email": "anton.igorijevic@gmail.com",
+  "type": "Patient",
+  "profilePicture": "profile_pictures/AntonIgor.jpg",
+  "status": "Pending",
+  "__v": 0,
+  "notifications": [
+    {
+      "read": false,
+      "text": "Svaki peti pregled je besplatan"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64da7f330837f0a8501614d7"
+  },
+  "username": "DjosLjub",
+  "password": "CharlieBravo123@",
+  "name": "Djosa",
+  "surname": "Ljubisic",
+  "address": "Vinogradi 19/2",
+  "phone": "+3812345678",
+  "email": "djosa.ljubisic@gmail.com",
+  "type": "Doctor",
+  "profilePicture": "profile_pictures/default.jpg",
+  "__v": 0,
+  "department": "Beograd",
+  "licenceNumber": 12345,
+  "speciality": "Nutricionista"
+},
+{
+  "_id": {
+    "$oid": "64dd3b6bb129991e58ffc799"
+  },
+  "username": "KotlajAnastas",
+  "password": "Lozinka123@",
+  "name": "Kotlaj",
+  "surname": "Anastasijevic",
+  "address": "Boracka 33",
+  "phone": "+3812345678",
+  "email": "kotlaj.anastasijevic@gmail.com",
+  "type": "Doctor",
+  "profilePicture": "profile_pictures/KotlajAnastas.png",
+  "status": "Approved",
+  "licenceNumber": 12312,
+  "speciality": "Psihijatar",
+  "department": "Pljevlja",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64df498305561d881b48a650"
+  },
+  "username": "SlavenMilan",
+  "password": "Lozinka123@",
+  "name": "Slaven",
+  "surname": "Milanovic",
+  "address": "Kod Ribarnice, 16",
+  "phone": "+3812345678",
+  "email": "slaven.milanovic@gmail.com",
+  "type": "Patient",
+  "profilePicture": "profile_pictures/default.jpg",
+  "status": "Approved",
+  "__v": 0,
+  "notifications": [
+    {
+      "read": false,
+      "text": "Svaki peti pregled je besplatan"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64df49b505561d881b48a655"
+  },
+  "username": "JovanUros",
+  "password": "Lozinka123@",
+  "name": "Jovan",
+  "surname": "Urosevic",
+  "address": "Brace Stamenkovic 33",
+  "phone": "+3812345678",
+  "email": "jovan.urosevic@gmail.com",
+  "type": "Patient",
+  "profilePicture": "profile_pictures/default.jpg",
+  "status": "Approved",
+  "__v": 0,
+  "notifications": [
+    {
+      "read": false,
+      "text": "Svaki peti pregled je besplatan"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64df4cad05561d881b48a667"
+  },
+  "username": "ArnautMiloje",
+  "password": "Lozinka123@",
+  "name": "Arnaut",
+  "surname": "Milojevic",
+  "address": "Obrenovac, 23",
+  "phone": "+3812345678",
+  "email": "arnaut.milojevic@gmail.com",
+  "type": "Patient",
+  "profilePicture": "profile_pictures/ArnautMiloje.png",
+  "status": "Pending",
+  "__v": 0,
+  "notifications": [
+    {
+      "read": false,
+      "text": "Svaki peti pregled je besplatan"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64df6b05d28a18cc07cea88b"
+  },
+  "username": "RadovanOgnjen",
+  "password": "Lozinka123@",
+  "name": "Radovan",
+  "surname": "Ognjenovic",
+  "address": "Jurija Gagarina 23",
+  "phone": "+3812345678",
+  "email": "radovan.ognjenovic@gmail.com",
+  "type": "Doctor",
+  "profilePicture": "profile_pictures/default.jpg",
+  "licenceNumber": 55533,
+  "speciality": "Nutricionista",
+  "department": "Beograd",
+  "__v": 0
+}]
