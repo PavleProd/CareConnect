@@ -7,6 +7,7 @@ import managerRouter from './routers/manager.router';
 import examinationRouter from './routers/examination.router';
 import specialityRouter from './routers/speciality.router';
 import notificationRouter from './routers/notification.router';
+import appointmentRouter from './routers/appointment.router';
 
 const assetsPath: string = './assets/'
 
@@ -31,6 +32,7 @@ router.use('/managers', managerRouter)
 router.use('/examinations', examinationRouter)
 router.use('/specialities', specialityRouter)
 router.use('/notifications', notificationRouter)
+router.use('/appointments', appointmentRouter)
 
 app.use('/', router);
 

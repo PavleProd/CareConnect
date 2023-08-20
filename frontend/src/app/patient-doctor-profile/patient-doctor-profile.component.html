@@ -14,11 +14,35 @@
                 <p><strong>Broj Licence: </strong>{{doctor.licenceNumber}}</p>
                 <p><strong>Specijalizacija: </strong>{{doctor.speciality}}</p>
                 <p><strong>Ogranak: </strong>{{doctor.department}}</p>
-                
+
             </div>
         </div>
+        <br />
+        <h1>Pregledi</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Naziv pregleda</th>
+                    <th>Trajanje</th>
+                    <th>Cena</th>
+                    <th>Akcija</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let examination of examinations">
+                    <ng-container *ngIf="examination.status === 'Approved'">
+                        <td>{{ examination.name }}</td>
+                        <td>{{ examination.duration }} min</td>
+                        <td>{{ examination.price }} RSD</td>
+                        <td>
+                            <button class="btn btn-info" (click)="redirectToAppoint(examination)">Zakaži
+                                pregled</button>
+                        </td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
 </body>
 
 <app-footer></app-footer>

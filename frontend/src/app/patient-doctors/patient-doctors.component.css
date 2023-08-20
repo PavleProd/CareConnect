@@ -1,5 +1,7 @@
 .center-screen {
+    display: flex;
     vertical-align: middle;
+    justify-content: center;
     height: 100vh;
 }
 

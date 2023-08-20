@@ -12,6 +12,14 @@ export class SpecialityService {
     return this.httpClient.post(this.path + '/get', null)
   }
 
+  getExaminationsForSpeciality(specialityName: string) {
+    const body = {
+      specialityName: specialityName
+    }
+
+    return this.httpClient.post(this.path + '/getExaminations', body)
+  }
+
   async addSpeciality(name: string) {
     const body = {
       name: name

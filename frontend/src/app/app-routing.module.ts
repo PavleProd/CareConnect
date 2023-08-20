@@ -15,6 +15,9 @@ import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.compo
 import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component';
 import { ManagerCreateExaminationComponent } from './manager-create-examination/manager-create-examination.component';
 import { ManagerNotifiactionsComponent } from './manager-notifiactions/manager-notifiactions.component';
+import { PatientAppointComponent } from './patient-appoint/patient-appoint.component';
+import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
+import { PatientNotificationsComponent } from './patient-notifications/patient-notifications.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +27,9 @@ const routes: Routes = [
   { path: 'patient/resetPassword', component: PatientResetpasswordComponent },
   { path: 'patient/doctors', component: PatientDoctorsComponent },
   { path: 'patient/doctors/:username', component: PatientDoctorProfileComponent },
+  { path: 'patient/appoint', component: PatientAppointComponent },
+  { path: 'patient/appointments', component: PatientAppointmentsComponent },
+  { path: 'patient/notifications', component: PatientNotificationsComponent },
   { path: 'doctor/profile', component: DoctorComponent },
   { path: 'doctor/resetPassword', component: DoctorResetpasswordComponent },
   { path: 'manager', component: ManagerLoginComponent },

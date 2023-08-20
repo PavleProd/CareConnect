@@ -5,9 +5,6 @@ body {
     height: 100vh;
 }
 
-.container {
-    padding: 20px;
-}
 
 .profile {
     display: flex;

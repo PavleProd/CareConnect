@@ -11,4 +11,8 @@ specialityRouter.route('/add').post(
     (req, res) => new SpecialityController().add(req, res)
 )
 
+specialityRouter.route('/getExaminations').post(
+    (req, res) => new SpecialityController().getExaminationsForSpeciality(req, res)
+)
+
 export default specialityRouter

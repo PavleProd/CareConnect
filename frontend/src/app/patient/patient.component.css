@@ -33,3 +33,10 @@ body {
 .profile-actions button {
     margin: 5px;
 }
+
+
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

@@ -31,4 +31,12 @@ export class PatientHeaderComponent implements OnInit {
     this.router.navigate(['patient/doctors'])
   }
 
+  redirectToAppointments() {
+    this.router.navigate(['patient/appointments'])
+  }
+
+  redirectToNotifications() {
+    this.router.navigate(['patient/notifications'])
+  }
+
 }

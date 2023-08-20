@@ -1,64 +1,55 @@
 <app-patient-header></app-patient-header>
-
 <form class="centered-form">
-    <div class="center-screen">
-        <h1>Naši Specijalisti</h1>
-        <div class="container mt-4 centered-form">
-            <form class="d-flex justify-content-center align-items-center">
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control mr-2" placeholder="Ime" [(ngModel)]="name" name="name">
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control mr-2" placeholder="Prezime" [(ngModel)]="surname"
-                        name="surname">
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control mr-2" placeholder="Specijalizacija" [(ngModel)]="speciality"
-                        name="speciality">
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control mr-2" placeholder="Ogranak" [(ngModel)]="department"
-                        name="department">
-                </div>
-                <button type="button" class="btn btn-primary mb-2" id="searchButton"
-                    (click)="search()">Pretraga</button>
-            </form>
-        </div>
 
-
-
-        <div class="table-container">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Slika</th>
-                        <th scope="col" (click)="sort('name')">Ime <img [src]="getImage('name')" /></th>
-                        <th scope="col" (click)="sort('surname')">Prezime <img [src]="getImage('surname')" /></th>
-                        <th scope="col" (click)="sort('speciality')">Specijalizacija <img
-                                [src]="getImage('speciality')" />
-                        </th>
-                        <th scope="col" (click)="sort('department')">Ogranak <img [src]="getImage('department')" />
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let doctor of doctors">
-                        <td class="image-column" (click)="redirectToDoctorsProfile(doctor)"><img
-                                [src]="'http://localhost:4000/' + doctor.profilePicture" alt="Slika lekara"></td>
-                        <td>{{ doctor.name }}</td>
-                        <td>{{ doctor.surname }}</td>
-                        <td>{{ doctor.speciality }}</td>
-                        <td>{{ doctor.department }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <br />
+    <h1>Naši Specijalisti</h1>
+    <div class="container mt-4 centered-form">
+        <form class="d-flex justify-content-center align-items-center">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control mr-2" placeholder="Ime" [(ngModel)]="name" name="name">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control mr-2" placeholder="Prezime" [(ngModel)]="surname" name="surname">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control mr-2" placeholder="Specijalizacija" [(ngModel)]="speciality"
+                    name="speciality">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control mr-2" placeholder="Ogranak" [(ngModel)]="department"
+                    name="department">
+            </div>
+            <button type="button" class="btn btn-primary mb-2" id="searchButton" (click)="search()">Pretraga</button>
+        </form>
     </div>
+
+
+
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Slika</th>
+                    <th scope="col" (click)="sort('name')">Ime <img [src]="getImage('name')" /></th>
+                    <th scope="col" (click)="sort('surname')">Prezime <img [src]="getImage('surname')" /></th>
+                    <th scope="col" (click)="sort('speciality')">Specijalizacija <img [src]="getImage('speciality')" />
+                    </th>
+                    <th scope="col" (click)="sort('department')">Ogranak <img [src]="getImage('department')" />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of doctors">
+                    <td class="image-column" (click)="redirectToDoctorsProfile(doctor)"><img
+                            [src]="'http://localhost:4000/' + doctor.profilePicture" alt="Slika lekara"></td>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.surname }}</td>
+                    <td>{{ doctor.speciality }}</td>
+                    <td>{{ doctor.department }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </form>
-
-
-
 
 <app-footer></app-footer>

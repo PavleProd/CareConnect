@@ -10,6 +10,17 @@ export class SpecialityController {
         })
     }
 
+    // dohvata sve preglede za odredjenu specijalnost
+    getExaminationsForSpeciality(req: express.Request, res: express.Response) {
+        let specialityName = req.body.specialityName
+
+        SpecialityModel.findOne({ name: specialityName }).populate("examinations").then((speciality) => {
+            res.send(speciality.examinations)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     add(req: express.Request, res: express.Response) {
         let speciality = new SpecialityModel(req.body)
         speciality.save().then((speciality) => {
