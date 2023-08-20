@@ -1,0 +1,17 @@
+<app-manager-header></app-manager-header>
+
+<div class="center-screen">
+    <div class="form-container">
+        <h1>Dodavanje Nove Promocije</h1>
+        <form id="promotionForm">
+            <div class="form-group">
+                <input type="text" class="form-control" name="promotionText" placeholder="Unesite tekst promocije"
+                    [(ngModel)]="promotionText">
+            </div>
+            <button (click)="addPromotion()" class="btn btn-primary">Dodaj Promociju</button>
+            <p class='oswald'>{{errorMessage}}</p>
+        </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

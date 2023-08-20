@@ -1,3 +1,5 @@
+import { Notification } from "./notification";
+
 export class User {
     username: string;
     password: string;
@@ -9,4 +11,5 @@ export class User {
     type: string
     status: string
     profilePicture: string = "profile_pictures/default.jpg"
+    notifications: Notification[]
 }

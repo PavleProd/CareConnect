@@ -1,0 +1,47 @@
+.center-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.oswald {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    color: red
+}
+
+.form-container {
+    width: 600px;
+    padding: 20px;
+    background-color: lightblue;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

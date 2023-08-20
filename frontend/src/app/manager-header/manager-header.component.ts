@@ -31,6 +31,10 @@ export class ManagerHeaderComponent implements OnInit {
     this.router.navigate(['manager/examinations']);
   }
 
+  redirectToNotifications(): void {
+    this.router.navigate(['manager/notifications']);
+  }
+
   logout() {
     sessionStorage.clear()
     this.router.navigate(['manager'])

@@ -14,6 +14,7 @@ import { ManagerPatientsComponent } from './manager-patients/manager-patients.co
 import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
 import { ManagerExaminationsComponent } from './manager-examinations/manager-examinations.component';
 import { ManagerCreateExaminationComponent } from './manager-create-examination/manager-create-examination.component';
+import { ManagerNotifiactionsComponent } from './manager-notifiactions/manager-notifiactions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'manager/doctors', component: ManagerDoctorsComponent },
   { path: 'manager/examinations', component: ManagerExaminationsComponent },
   { path: 'manager/examinations/addExamination', component: ManagerCreateExaminationComponent },
+  { path: 'manager/notifications', component: ManagerNotifiactionsComponent }
 ];
 
 @NgModule({

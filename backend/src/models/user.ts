@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { Notification } from "./notification";
 
 const Schema = mongoose.Schema;
 
@@ -57,6 +58,13 @@ let User = new Schema({
             return this.type === 'Doctor';
         }
     },
+    notifications: {
+        type: Array,
+        required: function () {
+            return this.type === 'Patient';
+        },
+        default: []
+    }
 });
 
 export default mongoose.model('User', User, 'users');
