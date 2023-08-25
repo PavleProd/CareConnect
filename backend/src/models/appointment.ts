@@ -6,15 +6,18 @@ const appointmentSchema = new mongoose.Schema({
         required: true
     },
     examination: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ExaminationModel',
         required: true
     },
     doctor: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserModel',
         required: true
     },
     patient: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserModel',
         required: true
     },
     status: {

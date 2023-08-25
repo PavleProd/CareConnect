@@ -1,1 +1,52 @@
-<p>patient-appointments works!</p>
+<app-patient-header></app-patient-header>
+
+<div class="center-screen">
+    <div class="container">
+        <h1>Zakazani Pregledi</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Naziv pregleda</th>
+                    <th>Trajanje</th>
+                    <th>Cena</th>
+                    <th>Akcija</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let speciality of specialities">
+                    <tr>
+                        <td colspan="4" class="oswald">{{ speciality.name }}</td>
+                    </tr>
+                    <tr *ngFor="let examination of speciality.examinations">
+                        <ng-container *ngIf="examination.status === 'Approved'">
+                            <td>{{ examination.name }}</td>
+                            <td>{{ examination.duration }} min</td>
+                            <td>{{ examination.price }} RSD</td>
+                            <td>
+                                <button class="btn btn-info">Izmeni</button>
+                                <button class="btn btn-danger"
+                                    (click)="deleteExamination(examination.name, speciality.name)">Obrisi</button>
+                            </td>
+                        </ng-container>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <div class="mr-auto">
+                <input class="form-control" placeholder="unesi specijalizaciju" [(ngModel)]="specialityName">
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)="redirectToAddExamination()">Dodaj
+                    Vrstu pregleda</button>
+            </div>
+        </div>
+        <div class="text-right">
+            <button type="button" class="btn btn-primary" (click)="addSpeciality()">Dodaj Specijalizaciju</button>
+        </div>
+
+
+    </div>
+</div>
+
+<app-footer></app-footer>

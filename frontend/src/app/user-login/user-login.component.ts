@@ -21,7 +21,7 @@ export class UserLoginComponent implements OnInit {
 
     // menadzer ima posebnu stranicu za login pa ne bi trebalo ovde da se prijavljuje
     if (!user || user.type == "Manager" || user.status == "Rejected") {
-      this.errorMessage = "Nepostojece korisnicko ime ili lozinka"
+      this.errorMessage = "Pogresno korisnicko ime ili lozinka"
       return
     }
 

@@ -4,9 +4,15 @@ import ExaminationModel from '../models/examination'
 
 export class AppointmentController {
 
-    // dodavanje novog zakazivanja
+    // dodavanje novog zakazivanja i prosledjivanje reference na pacijenta, doktora i pregled
     add(req: express.Request, res: express.Response) {
-        let appointment = new AppointmentModel(req.body)
+        let appointment = new AppointmentModel()
+        appointment.dateAndTime = req.body.dateAndTime
+        appointment.examination = req.body.examination._id
+        appointment.doctor = req.body.doctor._id
+        appointment.patient = req.body.patient._id
+        appointment.status = 'Pending'
+
         appointment.save().then(appointment => {
             res.json({ 'message': 'ok' })
         }).catch(err => {
@@ -18,7 +24,7 @@ export class AppointmentController {
     // dohvatanje zakazivanja za pacijenta
     getByPatient(req: express.Request, res: express.Response) {
         let patient = req.params.patient
-        AppointmentModel.find({ 'patient': patient }).then(appointments => {
+        AppointmentModel.find({ 'patient': patient }).populate(['patient', 'doctor', 'examination']).then(appointments => {
             res.json(appointments)
         }).catch(err => {
             console.log(err)
@@ -29,7 +35,7 @@ export class AppointmentController {
     // dohvatanje zakazivanja za doktora
     getByDoctor(req: express.Request, res: express.Response) {
         let doctor = req.params.doctor
-        AppointmentModel.find({ 'doctor': doctor }).then(appointments => {
+        AppointmentModel.find({ 'doctor': doctor }).populate(['patient', 'doctor', 'examination']).then(appointments => {
             res.json(appointments)
         }).catch(err => {
             console.log(err)
@@ -48,13 +54,17 @@ export class AppointmentController {
         let endDateTime = new Date(startDateTime.getTime() + examinationDuration * 60000)
 
         try {
-            let appointments = await AppointmentModel.find({ 'doctor': doctorName })
+            let appointments = await AppointmentModel.find({ 'doctor': doctorName }).populate(['patient', 'doctor', 'examination'])
 
             for (let appointment of appointments) {
                 let appointmentStartDateTime = new Date(appointment.dateAndTime)
 
-                let examination = await ExaminationModel.findOne({ name: examinationName })
-                let appointmentEndDateTime = new Date(appointment.dateAndTime.getTime() + examination.duration * 60000)
+                let duration = 0
+                if (appointment.examination && appointment.examination.duration) {
+                    duration = appointment.examination.duration;
+                }
+
+                let appointmentEndDateTime = new Date(appointment.dateAndTime.getTime() + duration * 60000)
 
                 if (startDateTime >= appointmentStartDateTime && startDateTime <= appointmentEndDateTime) {
                     res.json({ 'available': false })

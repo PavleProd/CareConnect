@@ -1,0 +1,12 @@
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center-screen {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
