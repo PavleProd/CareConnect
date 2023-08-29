@@ -7,6 +7,10 @@ appointmentRouter.route('/add').post(
     (req, res) => new AppointmentController().add(req, res)
 )
 
+appointmentRouter.route('/delete').post(
+    (req, res) => new AppointmentController().delete(req, res)
+)
+
 appointmentRouter.route('/getByPatient').post(
     (req, res) => new AppointmentController().getByPatient(req, res)
 )
@@ -16,7 +20,7 @@ appointmentRouter.route('/getByDoctor').post(
 )
 
 appointmentRouter.route('/isDoctorFree').post(
-    async (req, res) => await new AppointmentController().checkIfDoctorIsFree(req, res)
+    (req, res) => new AppointmentController().checkIfDoctorIsFree(req, res)
 )
 
 export default appointmentRouter

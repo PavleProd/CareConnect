@@ -28,6 +28,8 @@ import { ManagerNotifiactionsComponent } from './manager-notifiactions/manager-n
 import { PatientAppointComponent } from './patient-appoint/patient-appoint.component';
 import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
 import { PatientNotificationsComponent } from './patient-notifications/patient-notifications.component';
+import { DoctorExaminationsComponent } from './doctor-examinations/doctor-examinations.component';
+import { DoctorMiscComponent } from './doctor-misc/doctor-misc.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { PatientNotificationsComponent } from './patient-notifications/patient-n
     PatientAppointComponent,
     PatientAppointmentsComponent,
     PatientNotificationsComponent,
+    DoctorExaminationsComponent,
+    DoctorMiscComponent,
   ],
   imports: [
     BrowserModule,

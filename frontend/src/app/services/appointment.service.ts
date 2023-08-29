@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Examination } from '../models/examination';
+import { Doctor } from '../models/doctor';
+import { User } from '../models/user';
+import { Appointment } from '../models/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +12,27 @@ export class AppointmentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  async addApointment(patient: string, doctor: string, dateAndTime: Date, examination: string, status: string) {
+  async addApointment(patient: User, doctor: Doctor, dateAndTime: Date, examination: Examination) {
     const body = {
       patient: patient,
       doctor: doctor,
       dateAndTime: dateAndTime,
-      examination: examination,
-      status: status
+      examination: examination
     }
 
     await this.httpClient.post(this.path + '/add', body).toPromise()
 
   }
 
-  getPatientAppointments(patient: string) {
+  async deleteAppointemnt(appointment: Appointment) {
+    const body = {
+      appointment: appointment
+    }
+
+    await this.httpClient.post(this.path + '/delete', body).toPromise()
+  }
+
+  getPatientAppointments(patient: User) {
     const body = {
       patient: patient
     }
@@ -29,7 +40,7 @@ export class AppointmentService {
     return this.httpClient.post(this.path + '/getByPatient', body)
   }
 
-  getDoctorAppointments(doctor: string) {
+  getDoctorAppointments(doctor: Doctor) {
     const body = {
       doctor: doctor
     }
@@ -38,11 +49,10 @@ export class AppointmentService {
 
   }
 
-  async isDoctorAvailable(doctor: string, date: Date, examinationName: string, duration: number) {
+  async isDoctorAvailable(doctor: Doctor, date: Date, duration: number) {
     const body = {
       doctor: doctor,
       date: date,
-      examinationName: examinationName,
       duration: duration
     }
 

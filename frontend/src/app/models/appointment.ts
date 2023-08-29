@@ -1,7 +1,10 @@
+import { Doctor } from "./doctor"
+import { Examination } from "./examination"
+import { User } from "./user"
+
 export class Appointment {
-    patient: string
-    doctor: string
+    patient: User
+    doctor: Doctor
     dateAndTime: Date
-    examination: string
-    status: string // Approved | Pending
+    examination: Examination
 }

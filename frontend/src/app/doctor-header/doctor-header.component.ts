@@ -23,6 +23,14 @@ export class DoctorHeaderComponent implements OnInit {
     this.router.navigate(['doctor']);
   }
 
+  redirectToExaminations(): void {
+    this.router.navigate(['doctor/examinations']);
+  }
+
+  redirectToMisc(): void {
+    this.router.navigate(['doctor/misc']);
+  }
+
   logout() {
     sessionStorage.clear()
     this.router.navigate([''])

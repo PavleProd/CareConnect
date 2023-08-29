@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { Examination } from '../models/examination';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,15 @@ export class UserService {
     }
 
     return response['response']
+  }
+
+  async updateExaminationsForDoctor(doctor: string, examinations: Examination[]) {
+    const body = {
+      examinations: examinations,
+      doctor: doctor
+    }
+
+    await this.httpClient.post(this.path + "/updateExaminationsForDoctor", body).toPromise()
   }
 
   async checkIfEmailIsUnique(email: string) {

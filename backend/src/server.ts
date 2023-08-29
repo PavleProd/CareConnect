@@ -8,6 +8,8 @@ import examinationRouter from './routers/examination.router';
 import specialityRouter from './routers/speciality.router';
 import notificationRouter from './routers/notification.router';
 import appointmentRouter from './routers/appointment.router';
+import medicalReportRouter from './routers/medical_report.router';
+import freeDaysRouter from './routers/free_days.router';
 
 const assetsPath: string = './assets/'
 
@@ -33,6 +35,8 @@ router.use('/examinations', examinationRouter)
 router.use('/specialities', specialityRouter)
 router.use('/notifications', notificationRouter)
 router.use('/appointments', appointmentRouter)
+router.use('/medicalReports', medicalReportRouter)
+router.use('/freeDays', freeDaysRouter)
 
 app.use('/', router);
 

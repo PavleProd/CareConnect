@@ -29,7 +29,7 @@ export class PatientAppointComponent implements OnInit {
       return
     }
 
-    this.appointmentService.addApointment(this.user.username, this.doctor.username, dateAndTime, this.examination.name, "Pending")
+    this.appointmentService.addApointment(this.user, this.doctor, dateAndTime, this.examination)
 
     alert("Uspesno ste zakazali pregled")
     this.router.navigate(['/patient/appointments'])
@@ -43,14 +43,15 @@ export class PatientAppointComponent implements OnInit {
     }
 
     const dateAndTime: Date = this.createDate()
+    console.log(dateAndTime)
 
     if (dateAndTime < new Date()) {
       this.errorMessage = "Datum i vreme moraju biti u budućnosti"
       return null
     }
 
-    const isDoctorAvailable = await this.appointmentService.isDoctorAvailable(this.doctor.username, dateAndTime,
-      this.examination.name, this.examination.duration)
+    const isDoctorAvailable = await this.appointmentService.isDoctorAvailable(this.doctor, dateAndTime,
+      this.examination.duration)
 
 
     if (!isDoctorAvailable) {

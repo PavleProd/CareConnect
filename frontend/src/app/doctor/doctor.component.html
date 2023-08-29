@@ -22,6 +22,31 @@
         </div>
     </div>
 
+    <div class="container centered-button">
+        <h1>Vrste pregleda</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Naziv pregleda</th>
+                    <th>Trajanje</th>
+                    <th>Cena</th>
+                    <th>Obavljam</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let examination of allExaminations">
+                <ng-container *ngIf="examination.status === 'Approved'">
+                    <td>{{ examination.name }}</td>
+                    <td>{{ examination.duration }} min</td>
+                    <td>{{ examination.price }} RSD</td>
+                    <td>
+                        <input type="checkbox" id="chkBox" [checked]="getExaminationStatus(examination)"
+                            (change)="changeExaminationStatus(examination, $event)">
+                    </td>
+                </ng-container>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="updateExaminations()">Ažuriraj preglede koje obavljam</button>
+    </div>
 </body>
 
 

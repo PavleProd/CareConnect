@@ -35,4 +35,8 @@ userRouter.route('/changeStatus').post(
     (req, res) => new UserController().changeStatus(req, res)
 )
 
+userRouter.route('/updateExaminationsForDoctor').post(
+    (req, res) => new UserController().updateExaminationsForDoctor(req, res)
+)
+
 export default userRouter;

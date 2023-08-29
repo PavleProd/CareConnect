@@ -18,6 +18,8 @@ import { ManagerNotifiactionsComponent } from './manager-notifiactions/manager-n
 import { PatientAppointComponent } from './patient-appoint/patient-appoint.component';
 import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
 import { PatientNotificationsComponent } from './patient-notifications/patient-notifications.component';
+import { DoctorExaminationsComponent } from './doctor-examinations/doctor-examinations.component';
+import { DoctorMiscComponent } from './doctor-misc/doctor-misc.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path: 'patient/notifications', component: PatientNotificationsComponent },
   { path: 'doctor/profile', component: DoctorComponent },
   { path: 'doctor/resetPassword', component: DoctorResetpasswordComponent },
+  { path: 'doctor/examinations', component: DoctorExaminationsComponent },
+  { path: 'doctor/misc', component: DoctorMiscComponent },
   { path: 'manager', component: ManagerLoginComponent },
   { path: 'manager/patients', component: ManagerPatientsComponent },
   { path: 'manager/doctors', component: ManagerDoctorsComponent },

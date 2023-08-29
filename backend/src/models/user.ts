@@ -64,8 +64,15 @@ let User = new Schema({
             return this.type === 'Patient';
         },
         default: []
-    }
+    },
+    examinations: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ExaminationModel',
+        required: function () {
+            return this.type === 'Doctor';
+        }
+    }]
 });
 
-export default mongoose.model('User', User, 'users');
+export default mongoose.model('UserModel', User, 'users');
 

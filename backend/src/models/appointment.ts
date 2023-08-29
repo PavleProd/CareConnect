@@ -19,11 +19,6 @@ const appointmentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserModel',
         required: true
-    },
-    status: {
-        type: String,
-        enum: ['Approved', 'Pending'],
-        required: true
     }
 })
 

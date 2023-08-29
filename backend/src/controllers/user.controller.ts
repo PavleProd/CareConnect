@@ -7,7 +7,7 @@ export class UserController {
         let username = req.body.username;
         let password = req.body.password;
 
-        UserModel.findOne({ username: username, password: password }).then((user) => {
+        UserModel.findOne({ username: username, password: password }).populate('examinations').then((user) => {
             res.json(user);
         }).catch((err) => {
             console.log(err);
@@ -24,7 +24,7 @@ export class UserController {
         UserModel.find({
             'type': "Doctor", 'name': { $regex: name, $options: 'i' },
             'surname': { $regex: surname, $options: 'i' }, 'speciality': { $regex: speciality, $options: 'i' }, 'department': { $regex: department, $options: 'i' }
-        }).then((doctors) => {
+        }).populate('examinations').then((doctors) => {
             res.json(doctors);
         }).catch((err) => {
             console.log(err);
@@ -67,6 +67,25 @@ export class UserController {
         }).catch((err) => {
             console.log(err);
             res.json({ 'response': "error" });
+        })
+    }
+
+    // azuriraj listu pregleda za doktora
+    updateExaminationsForDoctor(req: express.Request, res: express.Response) {
+        let examinations = req.body.examinations
+        let doctor = req.body.doctor
+
+        let examinationIds = []
+
+        for (let examination of examinations) {
+            examinationIds.push(examination._id)
+        }
+
+        UserModel.findOneAndUpdate({ 'username': doctor }, { $set: { 'examinations': examinationIds } }).then((user) => {
+            res.json({ 'response': true });
+        }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': false });
         })
     }
 
