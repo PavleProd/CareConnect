@@ -1,10 +1,18 @@
 import express from 'express'
 import { NotificationController } from '../controllers/notification.controller'
 
-const notifcationRouter = express.Router()
+const notificationRouter = express.Router()
 
-notifcationRouter.route('/addPromotion').post(
+notificationRouter.route('/addPromotion').post(
     async (req, res) => await new NotificationController().addPromotion(req, res)
 )
 
-export default notifcationRouter
+notificationRouter.route('/addNotification').post(
+    (req, res) => new NotificationController().addNotification(req, res)
+)
+
+notificationRouter.route('/setNotifications').post(
+    (req, res) => new NotificationController().setNotifications(req, res)
+)
+
+export default notificationRouter

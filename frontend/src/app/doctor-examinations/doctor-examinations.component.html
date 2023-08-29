@@ -1,1 +1,39 @@
-<p>doctor-examinations works!</p>
+<app-doctor-header></app-doctor-header>
+
+<div class="center-screen">
+    <div class="container">
+        <h1>Pregledi</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pregled</th>
+                    <th>Datum i vreme</th>
+                    <th>Trajanje</th>
+                    <th>Ogranak</th>
+                    <th>Pacijent</th>
+                    <th>Cena</th>
+                    <th>Akcija</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments">
+                    <td>{{ appointment.examination.name }}</td>
+                    <td>{{ getFormattedDate(appointment.dateAndTime) }}</td>
+                    <td>{{ appointment.examination.duration }} min</td>
+                    <td>{{ appointment.doctor.department }}</td>
+                    <td>{{ appointment.patient.name }} {{ appointment.patient.surname }}</td>
+                    <td>{{ appointment.examination.price }} RSD</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="cancelAppointment(appointment)">Otkaži</button>
+                        <button class="btn btn-primary" (click)="redirectToPatientRecord(appointment.patient)">Otvori
+                            Karton Pacijenta</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+<app-footer></app-footer>

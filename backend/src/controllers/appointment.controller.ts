@@ -45,8 +45,21 @@ export class AppointmentController {
 
     // dohvatanje zakazivanja za doktora
     getByDoctor(req: express.Request, res: express.Response) {
-        let doctor = req.params.doctor
-        AppointmentModel.find({ 'doctor': doctor }).populate(['patient', 'doctor', 'examination']).then(appointments => {
+        let doctorID = req.body.doctor._id
+        AppointmentModel.find({ 'doctor': doctorID }).populate(['patient', 'doctor', 'examination']).then(appointments => {
+            res.json(appointments)
+        }).catch(err => {
+            console.log(err)
+            res.status(400).json({ 'message': 'error' })
+        })
+    }
+
+    // dohvatanje zakazivanja za doktora i pacijenta
+    getByDoctorAndPatient(req: express.Request, res: express.Response) {
+        let doctorID = req.body.doctor._id
+        let patientID = req.body.patient._id
+
+        AppointmentModel.find({ 'doctor': doctorID, 'patient': patientID }).populate(['patient', 'doctor', 'examination']).then(appointments => {
             res.json(appointments)
         }).catch(err => {
             console.log(err)

@@ -49,6 +49,15 @@ export class AppointmentService {
 
   }
 
+  getDoctorAndPatientAppointments(doctor: Doctor, patient: User) {
+    const body = {
+      doctor: doctor,
+      patient: patient
+    }
+
+    return this.httpClient.post(this.path + '/getByDoctorAndPatient', body)
+  }
+
   async isDoctorAvailable(doctor: Doctor, date: Date, duration: number) {
     const body = {
       doctor: doctor,

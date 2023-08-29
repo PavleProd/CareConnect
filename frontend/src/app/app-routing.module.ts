@@ -20,6 +20,7 @@ import { PatientAppointmentsComponent } from './patient-appointments/patient-app
 import { PatientNotificationsComponent } from './patient-notifications/patient-notifications.component';
 import { DoctorExaminationsComponent } from './doctor-examinations/doctor-examinations.component';
 import { DoctorMiscComponent } from './doctor-misc/doctor-misc.component';
+import { DoctorPatientRecordComponent } from './doctor-patient-record/doctor-patient-record.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'doctor/resetPassword', component: DoctorResetpasswordComponent },
   { path: 'doctor/examinations', component: DoctorExaminationsComponent },
   { path: 'doctor/misc', component: DoctorMiscComponent },
+  { path: 'doctor/patient-record/:username', component: DoctorPatientRecordComponent },
   { path: 'manager', component: ManagerLoginComponent },
   { path: 'manager/patients', component: ManagerPatientsComponent },
   { path: 'manager/doctors', component: ManagerDoctorsComponent },

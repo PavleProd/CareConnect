@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { Examination } from '../models/examination';
 import { AppointmentService } from '../services/appointment.service';
 import { Router } from '@angular/router';
+import { FreeDaysService } from '../services/free-days.service';
 
 @Component({
   selector: 'app-patient-appoint',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class PatientAppointComponent implements OnInit {
 
-  constructor(private appointmentService: AppointmentService, private router: Router) { }
+  constructor(private appointmentService: AppointmentService, private router: Router, private freeDaysService: FreeDaysService) { }
 
   ngOnInit(): void {
     this.doctor = JSON.parse(sessionStorage.getItem('doctor'))
@@ -50,9 +51,15 @@ export class PatientAppointComponent implements OnInit {
       return null
     }
 
-    const isDoctorAvailable = await this.appointmentService.isDoctorAvailable(this.doctor, dateAndTime,
+    let isDoctorAvailable = await this.appointmentService.isDoctorAvailable(this.doctor, dateAndTime,
       this.examination.duration)
 
+    if (!isDoctorAvailable) {
+      this.errorMessage = "Doktor nije slobodan u tom terminu"
+      return null
+    }
+
+    isDoctorAvailable = await this.freeDaysService.checkIfDoctorIsFree(dateAndTime, this.examination.duration, this.doctor)
 
     if (!isDoctorAvailable) {
       this.errorMessage = "Doktor nije slobodan u tom terminu"

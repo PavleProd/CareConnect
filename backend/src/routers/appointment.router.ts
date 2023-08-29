@@ -23,4 +23,8 @@ appointmentRouter.route('/isDoctorFree').post(
     (req, res) => new AppointmentController().checkIfDoctorIsFree(req, res)
 )
 
+appointmentRouter.route('/getByDoctorAndPatient').post(
+    (req, res) => new AppointmentController().getByDoctorAndPatient(req, res)
+)
+
 export default appointmentRouter

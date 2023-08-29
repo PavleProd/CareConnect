@@ -16,11 +16,27 @@
             <input type="number" id="price" name="price" [(ngModel)]="price" required>
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-primary" (click)="addExamination()">Dodaj pregled</button>
+            <button type="button" class="btn btn-primary" (click)="addExamination()">Dodaj</button>
         </div>
-
+        <p class="oswald">{{errorMessage2}}</p>
     </form>
 
+    <form class="examination-form">
+        <h1>Dodaj Slobodne dane:</h1>
+        <div class="form-group">
+            <label for="begin">Datum pocetka</label>
+            <input type="date" id="begin" name="begin" [(ngModel)]="begin">
+        </div>
+        <div class="form-group">
+            <label for="end">Datum kraja</label>
+            <input type="date" id="end" name="end" [(ngModel)]="end" required>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="addFreeDays()">Dodaj</button>
+        </div>
+        <p class="oswald">{{errorMessage}}</p>
+        <p class="green-oswald">{{successMessage}}</p>
+    </form>
 </div>
 
 <app-footer></app-footer>

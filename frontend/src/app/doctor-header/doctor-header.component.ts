@@ -20,7 +20,7 @@ export class DoctorHeaderComponent implements OnInit {
   }
 
   redirectToProfile(): void {
-    this.router.navigate(['doctor']);
+    this.router.navigate(['doctor/profile']);
   }
 
   redirectToExaminations(): void {
