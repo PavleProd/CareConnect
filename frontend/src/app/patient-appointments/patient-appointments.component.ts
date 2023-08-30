@@ -61,12 +61,13 @@ export class PatientAppointmentsComponent implements OnInit {
   medicalReportData(medicalReport: MedicalReport) {
     let data = []
 
+
     data.push('Pacijent: ' + medicalReport.patient.name + ' ' + medicalReport.patient.surname)
     data.push('Doktor: ' + medicalReport.doctor.name + ' ' + medicalReport.doctor.surname)
-    data.push('Date and time: ' + this.getFormattedDate(medicalReport.appointment.dateAndTime))
+    data.push('Pregled: ' + medicalReport.appointment.examination.name)
+    data.push('Datum i vreme: ' + this.getFormattedDate(medicalReport.appointment.dateAndTime))
     data.push('Dijagnoza: ' + medicalReport.diagnosis)
     data.push('Terapija: ' + medicalReport.therapy)
-
     return data
   }
 
@@ -83,9 +84,18 @@ export class PatientAppointmentsComponent implements OnInit {
         console.error('Error downloading PDF:', error);
       }
     );
-
+    let path: string = 'http://localhost:4000/'
+    this.sendMail(medicalReport.patient.email, path + filePath, path + 'qr/', fileName + '.png')
   }
 
+  sendMail(mail: string = "pavle.prodanovic01@gmail.com", link: string, qrCodePath: string, qrCodeFileName: string) {
+    this.fileService.generateQRCode(link, 'assets/qr/' + qrCodeFileName, qrCodeFileName).subscribe((data: ArrayBuffer) => {
+      const blob = new Blob([data], { type: 'image/png' });
+
+      this.fileService.sendEmailWithQRCode(mail, link, 'http://localhost:4000/qr/' + qrCodeFileName).subscribe((data: any) => {
+      })
+    })
+  }
 
   exportAllToPdf() {
     if (this.medicalReports.length == 0) {
@@ -108,7 +118,8 @@ export class PatientAppointmentsComponent implements OnInit {
         console.error('Error downloading PDF:', error);
       }
     );
-
+    let path: string = 'http://localhost:4000/'
+    this.sendMail(this.medicalReports[0].patient.email, path + filePath, path + 'qr/', fileName + '.png')
   }
 
   appointments: Appointment[]

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MedicalReport } from '../models/medical_report';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +42,22 @@ export class FileService {
         resolve(false);
       };
     });
+  }
+
+  sendEmailWithQRCode(patientEmail: string, linkToReport: string, qrCodePath: string) {
+    const emailData = { patientEmail, linkToReport, qrCodePath };
+
+    return this.httpClient.post(this.path + '/sendMail', emailData);
+  }
+
+  generateQRCode(linkToReport: string, qrCodePath: string, qrCodeFileName: string) {
+    const body = {
+      link: linkToReport,
+      qrCodePath: qrCodePath,
+      qrCodeFileName: qrCodeFileName
+    };
+
+    return this.httpClient.post(this.path + '/generateQRCode', body, { responseType: 'arraybuffer' });
   }
 
   exportToPdf(text: string, filePath: string) {

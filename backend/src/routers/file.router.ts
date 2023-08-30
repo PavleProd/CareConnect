@@ -3,11 +3,20 @@ import multer from 'multer'
 import { FileController } from '../controllers/file.controller'
 import * as fs from 'fs'
 import jsPDF from 'jspdf'
-import qr from 'qrcode'
+import * as qr from 'qrcode';
+import nodemailer from 'nodemailer'
 
 const fileRouter = express.Router();
 const profilePicturePath: string = 'assets/profile_pictures/'
 const pdfFilePath: string = 'assets/'
+
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'piaprojekat249@gmail.com',
+        pass: 'nuudhjlbirqlmzqm'
+    }
+});
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -39,9 +48,9 @@ fileRouter.route('/exportToPDF').post((req, res) => {
 })
 
 fileRouter.route('/generateQRCode').post((req, res) => {
-    const linkToReport = 'http://localhost:4000/files/generated.pdf'; // Promenite na odgovarajući link
-
-    qr.toFile('qrcode.png', linkToReport, {
+    const linkToReport = req.body.link; // link do izveštaja
+    const qrCodePath = req.body.qrCodePath; // putanja do QR koda
+    qr.toFile(qrCodePath, linkToReport, {
         color: {
             dark: '#000',  // Boja tamnih piksela u QR kodu
             light: '#fff'  // Boja svetlih piksela u QR kodu
@@ -55,6 +64,37 @@ fileRouter.route('/generateQRCode').post((req, res) => {
         res.json({ success: true, message: 'QR code generated' });
     });
 });
+
+fileRouter.route('/sendMail').post((req, res) => {
+    const { patientEmail, linkToReport, qrCodePath, qrCodeFileName } = req.body;
+
+    const mailOptions = {
+        from: 'piaprojekat249@gmail.com',
+        to: patientEmail,
+        subject: 'Vaš izveštaj',
+        html: `
+        <p>Ovde je link do vašeg izveštaja:</p>
+        <a href="${linkToReport}">Link do izveštaja</a>
+        <br>
+        <img src="cid:qrcode" alt="QR kod">
+      `,
+        attachments: [{
+            filename: qrCodeFileName,
+            path: qrCodePath,
+            cid: 'qrcode'
+        }]
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            res.status(500).json({ success: false, message: 'Error sending email' });
+        } else {
+            console.log('Email sent:', info.response);
+            res.json({ success: true, message: 'Email sent successfully' });
+        }
+    });
+})
 
 
 export default fileRouter;
