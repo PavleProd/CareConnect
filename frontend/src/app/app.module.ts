@@ -31,6 +31,8 @@ import { PatientNotificationsComponent } from './patient-notifications/patient-n
 import { DoctorExaminationsComponent } from './doctor-examinations/doctor-examinations.component';
 import { DoctorMiscComponent } from './doctor-misc/doctor-misc.component';
 import { DoctorPatientRecordComponent } from './doctor-patient-record/doctor-patient-record.component';
+import { DoctorCreateRecordComponent } from './doctor-create-record/doctor-create-record.component';
+import { ManagerChangeExaminationComponent } from './manager-change-examination/manager-change-examination.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { DoctorPatientRecordComponent } from './doctor-patient-record/doctor-pat
     DoctorExaminationsComponent,
     DoctorMiscComponent,
     DoctorPatientRecordComponent,
+    DoctorCreateRecordComponent,
+    ManagerChangeExaminationComponent,
   ],
   imports: [
     BrowserModule,

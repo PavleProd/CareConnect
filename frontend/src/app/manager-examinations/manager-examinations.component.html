@@ -23,7 +23,8 @@
                         <td>{{ examination.duration }} min</td>
                         <td>{{ examination.price }} RSD</td>
                         <td>
-                            <button class="btn btn-info">Izmeni</button>
+                            <button class="btn btn-info"
+                                (click)="redirectToChangeExamination(examination)">Izmeni</button>
                             <button class="btn btn-danger"
                                 (click)="deleteExamination(examination.name, speciality.name)">Obrisi</button>
                         </td>
@@ -72,7 +73,8 @@
                         <td>
                             <button class="btn btn-success"
                                 (click)="approveExamination(examination.name)">Potvrdi</button>
-                            <button class="btn btn-info">Izmeni</button>
+                            <button class="btn btn-info"
+                                (click)="redirectToChangeExamination(examination)">Izmeni</button>
                             <button class="btn btn-danger"
                                 (click)="deleteExamination(examination.name, speciality.name)">Odbij</button>
                         </td>

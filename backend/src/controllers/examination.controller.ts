@@ -49,4 +49,15 @@ export class ExaminationController {
             res.json({ 'message': 'error' })
         })
     }
+
+    changeExamination(req: express.Request, res: express.Response) {
+        let examination = req.body.examination
+
+        ExaminationModel.findOneAndUpdate({ name: examination.name }, { name: examination.name, duration: examination.duration, price: examination.price }).then((resp) => {
+            res.json({ 'message': 'ok' })
+        }).catch((err) => {
+            console.log(err)
+            res.json({ 'message': 'error' })
+        })
+    }
 }

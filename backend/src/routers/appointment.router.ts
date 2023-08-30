@@ -27,4 +27,8 @@ appointmentRouter.route('/getByDoctorAndPatient').post(
     (req, res) => new AppointmentController().getByDoctorAndPatient(req, res)
 )
 
+appointmentRouter.route('/getByExamination').post(
+    (req, res) => new AppointmentController().getByExamination(req, res)
+)
+
 export default appointmentRouter

@@ -67,6 +67,19 @@ export class AppointmentController {
         })
     }
 
+    // dohvati sve zakazane preglede za odredjenu vrstu pregleda
+    getByExamination(req: express.Request, res: express.Response) {
+        let examinationID = req.body.examination._id
+
+        AppointmentModel.find({ 'examination': examinationID }).populate(['patient', 'doctor', 'examination']).then(appointments => {
+            res.json(appointments)
+        }
+        ).catch(err => {
+            console.log(err)
+            res.status(400).json({ 'message': 'error' })
+        })
+    }
+
     // proverava da li je doktor slobodan u odredjenom terminu tako sto prodjemo kroz sve zakazane preglede
     checkIfDoctorIsFree(req: express.Request, res: express.Response) {
         let doctorID = req.body.doctor._id

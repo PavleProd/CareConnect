@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Examination } from '../models/examination';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,14 @@ export class ExaminationService {
     }
 
     await this.httpClient.post(this.path + '/changeStatus', body).toPromise()
+  }
+
+  async changeExamination(examination: Examination) {
+    const body = {
+      examination: examination
+    }
+
+    await this.httpClient.post(this.path + '/changeExamination', body).toPromise()
   }
 
   path = 'http://localhost:4000/examinations'

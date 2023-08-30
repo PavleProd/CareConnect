@@ -15,4 +15,8 @@ examinationRouter.route('/changeStatus').post(
     (req, res) => new ExaminationController().changeStatus(req, res)
 )
 
+examinationRouter.route('/changeExamination').post(
+    (req, res) => new ExaminationController().changeExamination(req, res)
+)
+
 export default examinationRouter

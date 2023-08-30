@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let examination of examinations">
+                <tr *ngFor="let examination of doctor.examinations">
                     <ng-container *ngIf="examination.status === 'Approved'">
                         <td>{{ examination.name }}</td>
                         <td>{{ examination.duration }} min</td>

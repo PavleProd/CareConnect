@@ -7,4 +7,8 @@ medicalReportRouter.route('/getByPatient').post(
     (req, res) => new MedicalReportController().getPatientMedicalReports(req, res)
 )
 
+medicalReportRouter.route('/create').post(
+    (req, res) => new MedicalReportController().createMedicalReport(req, res)
+)
+
 export default medicalReportRouter

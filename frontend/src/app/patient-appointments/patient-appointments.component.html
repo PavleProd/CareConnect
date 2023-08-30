@@ -34,7 +34,7 @@
                     <th>Razlog dolaska</th>
                     <th>Dijagnoza</th>
                     <th>Terapija</th>
-                    <th>Datum kontrole</th>
+                    <th>Datum i vreme kontrole</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
                     <td>{{ medicalReport.visitReason }}</td>
                     <td>{{ medicalReport.diagnosis }}</td>
                     <td>{{ medicalReport.therapy }}</td>
-                    <td>{{ medicalReport.controlDate }}</td>
+                    <td>{{ getFormattedDate(medicalReport.controlDate) }}</td>
                 </tr>
             </tbody>
         </table>

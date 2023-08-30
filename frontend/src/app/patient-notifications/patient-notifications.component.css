@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.yellow-bg {
+    background-color: yellow;
+}

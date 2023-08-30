@@ -70,5 +70,13 @@ export class AppointmentService {
     return response['available']
   }
 
+  async getByExamination(examination: Examination) {
+    const body = {
+      examination: examination
+    }
+
+    return await this.httpClient.post<Appointment[]>(this.path + '/getByExamination', body).toPromise()
+  }
+
   path: string = "http://localhost:4000/appointments"
 }

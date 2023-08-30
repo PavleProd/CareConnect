@@ -5,6 +5,7 @@ import { User } from '../models/user';
 import { Appointment } from '../models/appointment';
 import { AppointmentService } from '../services/appointment.service';
 import { Doctor } from '../models/doctor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-patient-record',
@@ -13,7 +14,7 @@ import { Doctor } from '../models/doctor';
 })
 export class DoctorPatientRecordComponent implements OnInit {
 
-  constructor(private medicalReportService: MedicalReportService, private appointmentService: AppointmentService) { }
+  constructor(private medicalReportService: MedicalReportService, private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit(): void {
     this.patient = JSON.parse(sessionStorage.getItem('patient'))
@@ -52,6 +53,20 @@ export class DoctorPatientRecordComponent implements OnInit {
   getFormattedDate(date: Date) {
     let d = new Date(date)
     return d.toLocaleDateString() + ' ' + d.toLocaleTimeString()
+  }
+
+  isMedicalReportAlreadyMade(appointment: Appointment) {
+    for (let medicalReport of this.medicalReports) {
+      if (medicalReport.appointment.examination.name == appointment.examination.name && medicalReport.appointment.dateAndTime == appointment.dateAndTime) {
+        return true
+      }
+    }
+    return false
+  }
+
+  redirectToCreateMedicalReport(appointment: Appointment) {
+    sessionStorage.setItem('appointment', JSON.stringify(appointment))
+    this.router.navigate(['/doctor/create-record/' + this.patient.username])
   }
 
   medicalReports: MedicalReport[]

@@ -3,6 +3,7 @@ import { Speciality } from '../models/speciality';
 import { SpecialityService } from '../services/speciality.service';
 import { Router } from '@angular/router';
 import { ExaminationService } from '../services/examination.service';
+import { Examination } from '../models/examination';
 
 @Component({
   selector: 'app-manager-examinations',
@@ -26,6 +27,11 @@ export class ManagerExaminationsComponent implements OnInit {
 
   redirectToAddExamination() {
     this.router.navigate(['/manager/examinations/addExamination'])
+  }
+
+  redirectToChangeExamination(examination: Examination) {
+    sessionStorage.setItem('examination', JSON.stringify(examination))
+    this.router.navigate(['/manager/examinations/changeExamination'])
   }
 
   async deleteExamination(examinationName: string, specialityName: string) {

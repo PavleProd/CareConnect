@@ -1,1 +1,14 @@
-<p>patient-notifications works!</p>
+<app-patient-header></app-patient-header>
+
+<div class="center-screen">
+    <div class="container">
+        <button class="btn btn-primary" (click)="setAsRead()">Oznaci sve kao procitano</button>
+        <h1>Notifikacije</h1>
+        <ul class="list-group">
+            <li *ngFor="let notification of user.notifications" class="list-group-item"
+                [ngClass]="{ 'yellow-bg': shouldHighlight(notification) }">{{ notification.text }}</li>
+        </ul>
+    </div>
+</div>
+
+<app-footer></app-footer>

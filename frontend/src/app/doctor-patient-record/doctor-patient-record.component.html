@@ -2,7 +2,8 @@
 
 <div class="center-screen">
     <div class="container">
-        <h1>Izveštaji</h1>
+        <h1>Karton korisnika: {{ patient.name }} {{ patient.surname }}</h1>
+        <h2>Izveštaji</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -12,7 +13,7 @@
                     <th>Razlog dolaska</th>
                     <th>Dijagnoza</th>
                     <th>Terapija</th>
-                    <th>Datum kontrole</th>
+                    <th>Datum i vreme kontrole</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,21 +24,20 @@
                     <td>{{ medicalReport.visitReason }}</td>
                     <td>{{ medicalReport.diagnosis }}</td>
                     <td>{{ medicalReport.therapy }}</td>
-                    <td>{{ medicalReport.controlDate }}</td>
+                    <td>{{ getFormattedDate(medicalReport.controlDate) }}</td>
                 </tr>
             </tbody>
         </table>
 
 
-        <h1>Obavljeni pregledi</h1>
+        <h2>Obavljeni pregledi</h2>
         <table class="table">
             <thead>
                 <tr>
                     <th>Pregled</th>
                     <th>Datum i vreme</th>
                     <th>Ogranak</th>
-                    <th>Lekar</th>
-                    <th>Akcija</th>
+                    <th>Izveštaj</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,8 +45,9 @@
                     <td>{{ appointment.examination.name }}</td>
                     <td>{{ getFormattedDate(appointment.dateAndTime) }}</td>
                     <td>{{ appointment.doctor.department }}</td>
-                    <td>{{ appointment.patient.name }} {{ appointment.patient.surname }}</td>
-                    <td><button class="btn btn-danger">Otkaži</button></td>
+                    <td><button class="btn btn-primary" (click)="redirectToCreateMedicalReport(appointment)" *ngIf="
+                            !isMedicalReportAlreadyMade(appointment)">Napravi
+                            Izveštaj</button></td>
                 </tr>
             </tbody>
         </table>
