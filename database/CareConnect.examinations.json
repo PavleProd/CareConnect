@@ -1,15 +1,5 @@
 [{
   "_id": {
-    "$oid": "64e0eb1a7adcd8f0ccedf3bf"
-  },
-  "name": "Lecenje akni",
-  "duration": 20,
-  "price": 1500,
-  "__v": 0,
-  "status": "Approved"
-},
-{
-  "_id": {
     "$oid": "64e0ebb7a611930b1012e39b"
   },
   "name": "Pregled Ishrane",
@@ -25,7 +15,7 @@
   "name": "Bračno savetovanje",
   "status": "Approved",
   "duration": 60,
-  "price": 3000,
+  "price": 3500,
   "__v": 0
 },
 {
@@ -43,8 +33,38 @@
     "$oid": "64e10951babd6ab41cc42579"
   },
   "name": "Psiholoska procena",
-  "status": "Approved",
+  "status": "Pending",
   "duration": 30,
   "price": 1500,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee306828cfb2c12d6bc60b"
+  },
+  "name": "Pregled mladeza",
+  "status": "Approved",
+  "duration": 15,
+  "price": 2000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee30c628cfb2c12d6bc616"
+  },
+  "name": "Pregled koznih infekcija",
+  "status": "Approved",
+  "duration": 30,
+  "price": 4000,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee8f062553f1ea18c691b6"
+  },
+  "name": "Lecenje Akni",
+  "status": "Approved",
+  "duration": 30,
+  "price": 2000,
   "__v": 0
 }]
