@@ -31,8 +31,16 @@ export class DoctorExaminationsComponent implements OnInit {
       return aDate - bDate
     })
 
-    for (let i = 0; i < Math.min(3, appointments.length); i++) {
+    let brojac = 0
+    for (let i = 0; i < appointments.length; i++) {
+      if (new Date(appointments[i].dateAndTime).getTime() < new Date().getTime()) {
+        continue
+      }
       this.appointments.push(appointments[i])
+      brojac++
+      if (brojac == 3) {
+        break
+      }
     }
   }
 

@@ -1,108 +1,13 @@
 [{
   "_id": {
-    "$oid": "64ee02a5a8010b2cf6bcdcc8"
+    "$oid": "64e287c50ff555a9be6bb45f"
   },
   "dateAndTime": {
-    "$date": "2023-10-01T11:00:00.000Z"
+    "$date": "2023-09-30T22:00:00.000Z"
   },
-  "examination": {
-    "$oid": "64e0fff141ea43be9bf148c7"
-  },
-  "doctor": {
-    "$oid": "64dd3b6bb129991e58ffc799"
-  },
-  "patient": {
-    "$oid": "64da79af1c2f2dc09fbd095d"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "64ee0410b519bac9316763fc"
-  },
-  "dateAndTime": {
-    "$date": "2023-10-14T16:45:00.000Z"
-  },
-  "examination": {
-    "$oid": "64e0ebb7a611930b1012e39b"
-  },
-  "doctor": {
-    "$oid": "64da7f330837f0a8501614d7"
-  },
-  "patient": {
-    "$oid": "64da79af1c2f2dc09fbd095d"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "64ee907e2553f1ea18c69269"
-  },
-  "dateAndTime": {
-    "$date": "2023-09-07T14:40:00.000Z"
-  },
-  "examination": {
-    "$oid": "64ee8f062553f1ea18c691b6"
-  },
-  "doctor": {
-    "$oid": "64da77051c2f2dc09fbd0959"
-  },
-  "patient": {
-    "$oid": "64da79af1c2f2dc09fbd095d"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "64ee90ef2553f1ea18c692a1"
-  },
-  "dateAndTime": {
-    "$date": "2023-07-14T01:45:00.000Z"
-  },
-  "examination": {
-    "$oid": "64ee306828cfb2c12d6bc60b"
-  },
-  "doctor": {
-    "$oid": "64da77051c2f2dc09fbd0959"
-  },
-  "patient": {
-    "$oid": "64da79af1c2f2dc09fbd095d"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "64eeb9d8ecfcfc81873d9c44"
-  },
-  "dateAndTime": {
-    "$date": "2022-02-17T06:39:00.000Z"
-  },
-  "examination": {
-    "$oid": "64ee306828cfb2c12d6bc60b"
-  },
-  "doctor": {
-    "$oid": "64da77051c2f2dc09fbd0959"
-  },
-  "patient": {
-    "$oid": "64da79af1c2f2dc09fbd095d"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "64ef1c139b5202bd688e4783"
-  },
-  "dateAndTime": {
-    "$date": "2023-09-08T11:40:00.000Z"
-  },
-  "examination": {
-    "$oid": "64ee306828cfb2c12d6bc60b"
-  },
-  "doctor": {
-    "$oid": "64da77051c2f2dc09fbd0959"
-  },
-  "patient": {
-    "$oid": "64da79af1c2f2dc09fbd095d"
-  },
+  "examination": "Pregled Ishrane",
+  "doctor": "DjosLjub",
+  "patient": "SlavenMilan",
+  "status": "Pending",
   "__v": 0
 }]

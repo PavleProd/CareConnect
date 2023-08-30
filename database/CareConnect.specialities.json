@@ -5,16 +5,10 @@
   "name": "Dermatolog",
   "examinations": [
     {
-      "$oid": "64ee306828cfb2c12d6bc60b"
-    },
-    {
-      "$oid": "64ee30c628cfb2c12d6bc616"
-    },
-    {
-      "$oid": "64ee8f062553f1ea18c691b6"
+      "$oid": "64e0eb1a7adcd8f0ccedf3bf"
     }
   ],
-  "__v": 5
+  "__v": 2
 },
 {
   "_id": {

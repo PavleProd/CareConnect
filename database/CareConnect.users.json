@@ -15,43 +15,27 @@
   "__v": 0,
   "department": "Beograd",
   "licenceNumber": 23456,
-  "speciality": "Dermatolog",
-  "examinations": [
-    {
-      "$oid": "64ee306828cfb2c12d6bc60b"
-    },
-    {
-      "$oid": "64ee8f062553f1ea18c691b6"
-    }
-  ]
+  "speciality": "Dermatolog"
 },
 {
   "_id": {
     "$oid": "64da79af1c2f2dc09fbd095d"
   },
   "username": "AntonIgor",
-  "password": "Lozinka123@",
+  "password": "VolimKendo123!",
   "name": "Anton",
   "surname": "Igorijevic",
-  "address": "Danijele Ivovic 12",
+  "address": "Danijele Ivovic 12a",
   "phone": "+3812345678",
   "email": "anton.igorijevic@gmail.com",
   "type": "Patient",
   "profilePicture": "profile_pictures/AntonIgor.jpg",
-  "status": "Approved",
+  "status": "Pending",
   "__v": 0,
   "notifications": [
     {
-      "read": true,
-      "text": "OTKAZAN PREGLED: Lecenje akni. Poruka doktora: na godisnjem sam odmoru"
-    },
-    {
       "read": false,
-      "text": "USKORO PREGLED: Lecenje akni kod doktora Pavle Prodanovic u 8/31/2023 12:00:00 AM"
-    },
-    {
-      "read": false,
-      "text": " NOVA CENA: Cena pregleda Lecenje Akni je promenjena sa 2500 na 2000."
+      "text": "Svaki peti pregled je besplatan"
     }
   ]
 },
@@ -60,7 +44,7 @@
     "$oid": "64da7f330837f0a8501614d7"
   },
   "username": "DjosLjub",
-  "password": "Lozinka123@",
+  "password": "CharlieBravo123@",
   "name": "Djosa",
   "surname": "Ljubisic",
   "address": "Vinogradi 19/2",
@@ -68,12 +52,10 @@
   "email": "djosa.ljubisic@gmail.com",
   "type": "Doctor",
   "profilePicture": "profile_pictures/default.jpg",
-  "status": "Approved",
   "__v": 0,
   "department": "Beograd",
   "licenceNumber": 12345,
-  "speciality": "Nutricionista",
-  "examinations": []
+  "speciality": "Nutricionista"
 },
 {
   "_id": {
@@ -89,15 +71,10 @@
   "type": "Doctor",
   "profilePicture": "profile_pictures/KotlajAnastas.png",
   "status": "Approved",
-  "licenceNumber": 123123,
+  "licenceNumber": 12312,
   "speciality": "Psihijatar",
   "department": "Pljevlja",
-  "__v": 0,
-  "examinations": [
-    {
-      "$oid": "64e0fff141ea43be9bf148c7"
-    }
-  ]
+  "__v": 0
 },
 {
   "_id": {
