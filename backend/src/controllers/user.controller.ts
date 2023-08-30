@@ -131,4 +131,35 @@ export class UserController {
             res.json({ 'response': false });
         })
     }
+
+    // izmeni podatke pacijenta 
+    changePatient(req: express.Request, res: express.Response) {
+        let patient = req.body.user
+
+        UserModel.updateOne({ 'username': patient.username }, {
+            'name': patient.name, 'surname': patient.surname,
+            'address': patient.address, 'phone': patient.phone, 'profilePicture': patient.profilePicture
+        }).then((user) => {
+            res.json({ 'response': true });
+        }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': false });
+        })
+    }
+
+    // izmeni podatke doktora 
+    changeDoctor(req: express.Request, res: express.Response) {
+        let doctor = req.body.user
+
+        UserModel.updateOne({ 'username': doctor.username }, {
+            'name': doctor.name, 'surname': doctor.surname, 'address': doctor.address, 'phone': doctor.phone,
+            'licenceNumber': doctor.licenceNumber, 'speciality': doctor.speciality, 'profilePicture': doctor.profilePicture
+        }).then((user) => {
+            res.json({ 'response': true });
+        }).catch((err) => {
+            console.log(err);
+            res.json({ 'response': false });
+        })
+    }
+
 }

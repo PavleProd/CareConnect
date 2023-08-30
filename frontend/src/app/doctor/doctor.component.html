@@ -15,7 +15,7 @@
                 <p><strong>Specijalizacija: </strong>{{doctor.speciality}}</p>
                 <p><strong>Ogranak: </strong>{{doctor.department}}</p>
                 <div class="profile-actions">
-                    <button class="btn btn-primary">Izmeni profil</button>
+                    <button class="btn btn-primary" (click)="redirectToChangeProfile()">Izmeni profil</button>
                     <button class="btn btn-danger" (click)="redirectToResetPassword()">Resetuj lozinku</button>
                 </div>
             </div>

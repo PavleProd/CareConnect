@@ -1,0 +1,41 @@
+<app-patient-header></app-patient-header>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card p-4" style="background-color: #e6f7ff;">
+        <h1>Izmena profila</h1>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Ime</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
+            </div>
+            <div class="mb-3">
+                <label for="surname" class="form-label">Prezime</label>
+                <input type="text" class="form-control" id="surname" name="surname" [(ngModel)]="user.surname" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Adresa</label>
+                <input type="text" class="form-control" id="address" name="address" [(ngModel)]="user.address" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Kontakt telefon</label>
+                <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="profileImage" class="form-label">Dodaj profilnu fotografiju</label>
+                <input type="file" class="form-control" id="profileImage" (change)="onFileSelected($event)">
+            </div>
+            <div class="button-container">
+                <button type="button" class="btn btn-primary" (click)="changeProfile()">Registruj se</button>
+                <button type="button" class="btn btn-primary" (click)="back()">Nazad</button>
+            </div>
+            <div class="oswald">
+                {{errorMessage}}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>

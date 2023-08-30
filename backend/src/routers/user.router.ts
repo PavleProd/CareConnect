@@ -39,4 +39,12 @@ userRouter.route('/updateExaminationsForDoctor').post(
     (req, res) => new UserController().updateExaminationsForDoctor(req, res)
 )
 
+userRouter.route('/changePatient').post(
+    (req, res) => new UserController().changePatient(req, res)
+)
+
+userRouter.route('/changeDoctor').post(
+    (req, res) => new UserController().changeDoctor(req, res)
+)
+
 export default userRouter;

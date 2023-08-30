@@ -23,6 +23,8 @@ import { DoctorMiscComponent } from './doctor-misc/doctor-misc.component';
 import { DoctorPatientRecordComponent } from './doctor-patient-record/doctor-patient-record.component';
 import { DoctorCreateRecordComponent } from './doctor-create-record/doctor-create-record.component';
 import { ManagerChangeExaminationComponent } from './manager-change-examination/manager-change-examination.component';
+import { PatientChangeProfileComponent } from './patient-change-profile/patient-change-profile.component';
+import { DoctorChangeProfileComponent } from './doctor-change-profile/doctor-change-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,12 +32,14 @@ const routes: Routes = [
   { path: 'register', component: UserRegisterComponent },
   { path: 'patient/profile', component: PatientComponent },
   { path: 'patient/resetPassword', component: PatientResetpasswordComponent },
+  { path: 'patient/change-profile', component: PatientChangeProfileComponent },
   { path: 'patient/doctors', component: PatientDoctorsComponent },
   { path: 'patient/doctors/:username', component: PatientDoctorProfileComponent },
   { path: 'patient/appoint', component: PatientAppointComponent },
   { path: 'patient/appointments', component: PatientAppointmentsComponent },
   { path: 'patient/notifications', component: PatientNotificationsComponent },
   { path: 'doctor/profile', component: DoctorComponent },
+  { path: 'doctor/change-profile', component: DoctorChangeProfileComponent },
   { path: 'doctor/resetPassword', component: DoctorResetpasswordComponent },
   { path: 'doctor/examinations', component: DoctorExaminationsComponent },
   { path: 'doctor/misc', component: DoctorMiscComponent },

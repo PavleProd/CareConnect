@@ -64,6 +64,10 @@ export class DoctorComponent implements OnInit {
     this.router.navigate(['doctor/resetPassword'])
   }
 
+  redirectToChangeProfile() {
+    this.router.navigate(['doctor/change-profile'])
+  }
+
   doctor: Doctor
   allExaminations: Examination[]
   examinationChosen = new Map<Examination, boolean>()

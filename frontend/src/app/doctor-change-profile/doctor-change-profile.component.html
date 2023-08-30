@@ -1,0 +1,52 @@
+<app-doctor-header></app-doctor-header>
+
+<div class="center-screen">
+    <div class="col-md-6 content-container">
+        <h1> Dodaj novog lekara</h1>
+        <div class="card p-4" style="background-color: #e6f7ff;">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Ime</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Prezime</label>
+                    <input type="text" class="form-control" id="surname" name="surname" [(ngModel)]="user.surname"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Adresa</label>
+                    <input type="text" class="form-control" id="address" name="address" [(ngModel)]="user.address"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Kontakt telefon</label>
+                    <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="licenceNumber" class="form-label">Broj Licence</label>
+                    <input type="text" class="form-control" id="licenceNumber" name="licenceNumber"
+                        [(ngModel)]="user.licenceNumber" required>
+                </div>
+                <div class="mb-3">
+                    <label for="speciality" class="form-label">Specijalizacija</label>
+                    <input type="text" class="form-control" id="speciality" name="speciality"
+                        [(ngModel)]="user.speciality" required>
+                </div>
+                <div class="mb-3">
+                    <label for="profileImage" class="form-label">Dodaj profilnu fotografiju</label>
+                    <input type="file" class="form-control" id="profileImage" (change)="onFileSelected($event)">
+                </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-primary" (click)="register()">Izmeni profil</button>
+
+                </div>
+                <div class="oswald">
+                    {{errorMessage}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

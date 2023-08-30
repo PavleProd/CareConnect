@@ -20,6 +20,10 @@ export class PatientComponent implements OnInit {
     this.router.navigate(['patient/resetPassword'])
   }
 
+  redirectToChangeProfile() {
+    this.router.navigate(['patient/change-profile'])
+  }
+
   profilePicturePath: string
   user: User
 }

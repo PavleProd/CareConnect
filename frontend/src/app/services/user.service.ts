@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Examination } from '../models/examination';
+import { Doctor } from '../models/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -96,6 +97,22 @@ export class UserService {
     }
 
     await this.httpClient.post(this.path + "/changeStatus", body).toPromise()
+  }
+
+  async changePatient(patient: User) {
+    const body = {
+      user: patient
+    }
+
+    await this.httpClient.post(this.path + "/changePatient", body).toPromise()
+  }
+
+  async changeDoctor(doctor: Doctor) {
+    const body = {
+      user: doctor
+    }
+
+    await this.httpClient.post(this.path + "/changeDoctor", body).toPromise()
   }
 
   path: String = "http://localhost:4000/users"
