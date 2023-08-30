@@ -4,6 +4,7 @@ import { Appointment } from '../models/appointment';
 import { User } from '../models/user';
 import { MedicalReport } from '../models/medical_report';
 import { MedicalReportService } from '../services/medical-report.service';
+import { FileService } from '../services/file.service';
 
 @Component({
   selector: 'app-patient-appointments',
@@ -12,7 +13,7 @@ import { MedicalReportService } from '../services/medical-report.service';
 })
 export class PatientAppointmentsComponent implements OnInit {
 
-  constructor(private appointementService: AppointmentService, private medicalReportService: MedicalReportService) { }
+  constructor(private appointementService: AppointmentService, private medicalReportService: MedicalReportService, private fileService: FileService) { }
 
   ngOnInit(): void {
     this.patient = JSON.parse(sessionStorage.getItem('user'))
@@ -54,6 +55,60 @@ export class PatientAppointmentsComponent implements OnInit {
   async deleteAppointment(appointment: Appointment) {
     await this.appointementService.deleteAppointemnt(appointment)
     this.ngOnInit()
+  }
+
+  // u svakom redu po jedan podatak o pregledu ali u vidu stringa
+  medicalReportData(medicalReport: MedicalReport) {
+    let data = []
+
+    data.push('Pacijent: ' + medicalReport.patient.name + ' ' + medicalReport.patient.surname)
+    data.push('Doktor: ' + medicalReport.doctor.name + ' ' + medicalReport.doctor.surname)
+    data.push('Date and time: ' + this.getFormattedDate(medicalReport.appointment.dateAndTime))
+    data.push('Dijagnoza: ' + medicalReport.diagnosis)
+    data.push('Terapija: ' + medicalReport.therapy)
+
+    return data
+  }
+
+  exportToPdf(medicalReport: MedicalReport) {
+    const text = this.medicalReportData(medicalReport).join('\n')
+    const d = new Date(medicalReport.appointment.dateAndTime)
+    const fileName = medicalReport.patient.username + d.getTime()
+    const filePath = 'pdf/' + fileName + '.pdf'
+    this.fileService.exportToPdf(text, filePath).subscribe(
+      (data: ArrayBuffer) => {
+        const blob = new Blob([data], { type: 'application/pdf' });
+      },
+      error => {
+        console.error('Error downloading PDF:', error);
+      }
+    );
+
+  }
+
+
+  exportAllToPdf() {
+    if (this.medicalReports.length == 0) {
+      return
+    }
+
+    let textArray = []
+    for (let medicalReport of this.medicalReports) {
+      textArray.push(this.medicalReportData(medicalReport).join('\n'))
+    }
+
+    const text = textArray.join('\n\n')
+    const fileName = this.medicalReports[0].patient.username + new Date().getTime()
+    const filePath = 'pdf/' + fileName + '.pdf'
+    this.fileService.exportToPdf(text, filePath).subscribe(
+      (data: ArrayBuffer) => {
+        const blob = new Blob([data], { type: 'application/pdf' });
+      },
+      error => {
+        console.error('Error downloading PDF:', error);
+      }
+    );
+
   }
 
   appointments: Appointment[]

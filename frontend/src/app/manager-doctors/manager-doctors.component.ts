@@ -144,6 +144,11 @@ export class ManagerDoctorsComponent implements OnInit {
     return true
   }
 
+  redirectToChangeProfile(doctor: Doctor) {
+    sessionStorage.setItem('doctor', JSON.stringify(doctor))
+    this.router.navigate(["/manager/change-doctor"])
+  }
+
   user: Doctor = new Doctor()
   passwordConfirm: string = ""
   errorMessage: string = ""

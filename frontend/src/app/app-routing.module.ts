@@ -25,6 +25,8 @@ import { DoctorCreateRecordComponent } from './doctor-create-record/doctor-creat
 import { ManagerChangeExaminationComponent } from './manager-change-examination/manager-change-examination.component';
 import { PatientChangeProfileComponent } from './patient-change-profile/patient-change-profile.component';
 import { DoctorChangeProfileComponent } from './doctor-change-profile/doctor-change-profile.component';
+import { ManagerChangePatientComponent } from './manager-change-patient/manager-change-patient.component';
+import { ManagerChangeDoctorComponent } from './manager-change-doctor/manager-change-doctor.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,7 +53,9 @@ const routes: Routes = [
   { path: 'manager/examinations', component: ManagerExaminationsComponent },
   { path: 'manager/examinations/addExamination', component: ManagerCreateExaminationComponent },
   { path: 'manager/examinations/changeExamination', component: ManagerChangeExaminationComponent },
-  { path: 'manager/notifications', component: ManagerNotifiactionsComponent }
+  { path: 'manager/notifications', component: ManagerNotifiactionsComponent },
+  { path: 'manager/change-patient', component: ManagerChangePatientComponent },
+  { path: 'manager/change-doctor', component: ManagerChangeDoctorComponent }
 ];
 
 @NgModule({

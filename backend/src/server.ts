@@ -38,6 +38,8 @@ router.use('/appointments', appointmentRouter)
 router.use('/medicalReports', medicalReportRouter)
 router.use('/freeDays', freeDaysRouter)
 
+
+
 app.use('/', router);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));

@@ -35,6 +35,7 @@
                     <th>Dijagnoza</th>
                     <th>Terapija</th>
                     <th>Datum i vreme kontrole</th>
+                    <th>Izvezi PDF</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,9 +47,11 @@
                     <td>{{ medicalReport.diagnosis }}</td>
                     <td>{{ medicalReport.therapy }}</td>
                     <td>{{ getFormattedDate(medicalReport.controlDate) }}</td>
+                    <td><button class="btn btn-primary" (click)="exportToPdf(medicalReport)">Izvezi</button></td>
                 </tr>
             </tbody>
         </table>
+        <button class="btn btn-primary" (click)="exportAllToPdf()">Izvezi Sve Izvestaje</button>
     </div>
 
 </div>

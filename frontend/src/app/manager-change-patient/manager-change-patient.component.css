@@ -1,0 +1,22 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.oswald {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    color: red
+}
+
+.center-screen {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

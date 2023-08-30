@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MedicalReport } from '../models/medical_report';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,15 @@ export class FileService {
         resolve(false);
       };
     });
+  }
+
+  exportToPdf(text: string, filePath: string) {
+    const body = {
+      text: text,
+      filePath: filePath
+    };
+
+    return this.httpClient.post('http://localhost:4000/files/exportToPdf', body, { responseType: 'arraybuffer' });
   }
 
   async isImageValid(): Promise<boolean> {

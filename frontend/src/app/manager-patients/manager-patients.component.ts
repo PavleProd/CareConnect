@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-patients',
@@ -9,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class ManagerPatientsComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.userService.getPatients("Approved").subscribe((response: User[]) => {
@@ -29,6 +30,11 @@ export class ManagerPatientsComponent implements OnInit {
   async rejectPatient(patient: User) {
     await this.userService.changeStatus(patient.username, "Rejected")
     this.ngOnInit()
+  }
+
+  redirectToChangePatients(patient: User) {
+    sessionStorage.setItem('patient', JSON.stringify(patient))
+    this.router.navigate(['/manager/change-patient'])
   }
 
   approvedPatients: User[]

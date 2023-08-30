@@ -35,6 +35,8 @@ import { DoctorCreateRecordComponent } from './doctor-create-record/doctor-creat
 import { ManagerChangeExaminationComponent } from './manager-change-examination/manager-change-examination.component';
 import { PatientChangeProfileComponent } from './patient-change-profile/patient-change-profile.component';
 import { DoctorChangeProfileComponent } from './doctor-change-profile/doctor-change-profile.component';
+import { ManagerChangePatientComponent } from './manager-change-patient/manager-change-patient.component';
+import { ManagerChangeDoctorComponent } from './manager-change-doctor/manager-change-doctor.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { DoctorChangeProfileComponent } from './doctor-change-profile/doctor-cha
     ManagerChangeExaminationComponent,
     PatientChangeProfileComponent,
     DoctorChangeProfileComponent,
+    ManagerChangePatientComponent,
+    ManagerChangeDoctorComponent,
   ],
   imports: [
     BrowserModule,
