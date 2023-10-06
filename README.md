@@ -30,16 +30,12 @@
 - **Price Adjustment**: Managers can adjust appointment prices.
 - **Notifications**: All users receive notifications about discounts, changes in appointment times, or pricing.
 
-## Libraries and Technologies
+## Libraries
 
 - Frontend:
-  - HTML, CSS, Angular
   - Bootstrap for styling
 
 - Backend:
-  - TypeScript, Node.js
-  - MongoDB for database management
-  - Express.js for API development
   - Nodemailer for email functionality
   - Multer for handling file uploads
   - QRCode for generating QR codes
